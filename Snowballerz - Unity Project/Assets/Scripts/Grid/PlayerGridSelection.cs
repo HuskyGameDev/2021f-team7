@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -44,7 +42,7 @@ public class PlayerGridSelection : MonoBehaviour
 
     private void Update()
     {
-        this.SelectionCheck();
+        SelectionCheck();
     }
 
     private void SelectionCheck()

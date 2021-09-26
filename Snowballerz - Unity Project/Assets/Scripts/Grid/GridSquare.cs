@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GridSquare : MonoBehaviour, IInteractable
@@ -44,10 +42,7 @@ public class GridSquare : MonoBehaviour, IInteractable
         gridObject.transform.localPosition = new Vector3( 0, 0, -1 );
     }
 
-    /// <summary>
-    /// Returns the visual bounds in world space of the grid square.
-    /// </summary>
-    /// <returns></returns>
+    //Returns the visual bounds in world space of the grid square.
     public Bounds GetBounds()
     {
         return this.sprRend.bounds;

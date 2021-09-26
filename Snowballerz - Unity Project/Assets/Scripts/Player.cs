@@ -1,10 +1,8 @@
 using UnityEngine;
-using UnityEngine.Assertions;
-using UnityEngine.InputSystem;
 using System;
 
 [ RequireComponent( typeof( PlayerGridSelection ) ) ]
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IDamageable
 {
     public static event Action<int> OnSnowCountChange;
 
@@ -22,7 +20,11 @@ public class Player : MonoBehaviour
         set
         {
             snowCount = value;
-            OnSnowCountChange(snowCount);
+
+            if (OnSnowCountChange != null)
+            {
+                OnSnowCountChange(snowCount);
+            }
         }
     }
 
@@ -69,7 +71,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        this.MovePlayer();
+        MovePlayer();
     }
 
     private void MovePlayer()
@@ -77,4 +79,8 @@ public class Player : MonoBehaviour
         this.rb.position += this.movementDirection * Time.deltaTime * movementSpeed;
     }
 
+    public void TakeDamage()
+    {
+        throw new NotImplementedException();
+    }
 }
