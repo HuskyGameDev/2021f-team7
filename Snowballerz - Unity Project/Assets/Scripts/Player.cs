@@ -1,15 +1,30 @@
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.InputSystem;
+using System;
 
 [ RequireComponent( typeof( PlayerGridSelection ) ) ]
 public class Player : MonoBehaviour
 {
+    public static event Action<int> OnSnowCountChange;
+
     // Public / Exposed fields. //
     [ SerializeField ]
     private float movementSpeed = 7.0f;
 
-    [field: SerializeField] public int Snow { get; set; } = 0;
+    int snowCount;
+
+    //[field: SerializeField] public int Snow { get; set; } = 0;
+    public int SnowCount
+    {
+        get { return snowCount; }
+
+        set
+        {
+            snowCount = value;
+            OnSnowCountChange(snowCount);
+        }
+    }
 
     // Private / Unexposed fields. //
     private Vector2 movementDirection = Vector2.zero;
@@ -26,6 +41,8 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        SnowCount = 0;
+
         var input = GlobalInputActions.Instance;
 
         input.Player_1.Move.performed += ctx => 

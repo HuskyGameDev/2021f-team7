@@ -10,7 +10,7 @@ public class SnowGridObject : GridObject
 
     public override void Interact ( Player player )
     {
-        player.Snow += this.snowAmount;
+        player.SnowCount += this.snowAmount;
 
         Destroy( this.gameObject );
     }
