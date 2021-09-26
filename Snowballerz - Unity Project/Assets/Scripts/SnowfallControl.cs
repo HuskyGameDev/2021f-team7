@@ -5,8 +5,8 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class SnowfallControl : MonoBehaviour
 {
-    //List killBoxes = new List();
     ParticleSystem ps;
+    HashSet<int> deathTiles = new HashSet<int>();
 
     // Start is called before the first frame update
     void Start()
@@ -20,30 +20,43 @@ public class SnowfallControl : MonoBehaviour
         
     }
 
-   /* public void stopHere()
+    public void stopHere (int tileNum)
     {
+	deathTiles.Add(tileNum);
+    }
 
-
-    }*/
-
-    void OnEnable()
+    public void goThroughHere (int tileNum)
     {
-       // ps = GetComponent<ParticleSystem>();
+	deathTiles.Remove(tileNum);
     }
 
     void OnParticleTrigger()
     {
-        //Debug.Log("Hello");
+        ParticleSystem ps = GetComponent<ParticleSystem>();
+	ParticleSystem.ColliderData enterData;
+
+        // list to hold entering particles
         List<ParticleSystem.Particle> enter = new List<ParticleSystem.Particle>();
 
-        int numEnter = ps.GetTriggerParticles(ParticleSystemTriggerEventType.Enter, enter);
-        Debug.Log("numEnter = " + numEnter);
+        // get particles that entered trigger
+        int numEnter = ps.GetTriggerParticles(ParticleSystemTriggerEventType.Enter, enter, out enterData);
+
+        // iterate through particles that entered
         for (int i = 0; i < numEnter; i++)
         {
-            ParticleSystem.Particle p = enter[i];
-            p.startColor = new Color32(255, 0, 0, 255);
-            enter[i] = p;
-            
+        	ParticleSystem.Particle p = enter[i];
+		foreach (int tile in deathTiles) 
+		{
+			if (enterData.GetCollider(i, 0) == ps.trigger.GetCollider(tile)) 
+			{	
+				p.remainingLifetime = 0;
+				enter[i] = p;
+				Debug.Log("Particle Killed");
+			}
+		}
         }
+ 
+        // set particles
+        ps.SetTriggerParticles(ParticleSystemTriggerEventType.Enter, enter);
     }
 }
