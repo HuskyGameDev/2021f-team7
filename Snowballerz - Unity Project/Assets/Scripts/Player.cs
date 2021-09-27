@@ -8,11 +8,11 @@ public class Player : MonoBehaviour, IDamageable
 
     // Public / Exposed fields. //
     [ SerializeField ]
-    private float movementSpeed = 7.0f;
+    float movementSpeed = 7.0f;
 
+    [SerializeField]
     int snowCount;
 
-    //[field: SerializeField] public int Snow { get; set; } = 0;
     public int SnowCount
     {
         get { return snowCount; }
@@ -79,7 +79,7 @@ public class Player : MonoBehaviour, IDamageable
         this.rb.position += this.movementDirection * Time.deltaTime * movementSpeed;
     }
 
-    public void TakeDamage()
+    public void TakeDamage(int amount)
     {
         throw new NotImplementedException();
     }
