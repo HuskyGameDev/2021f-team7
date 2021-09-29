@@ -61,6 +61,7 @@ public class Player : MonoBehaviour, IDamageable
         {
             var selected = this.playerSelection.GetSelected();
 
+            // the selected square is the square which is nearest to the player and is flashing red
             if ( selected != null )
                 selected.selectedSquare.Interact( this );
         };

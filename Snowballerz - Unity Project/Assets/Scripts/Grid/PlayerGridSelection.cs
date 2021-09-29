@@ -37,7 +37,7 @@ public class PlayerGridSelection : MonoBehaviour
 
     public Selection GetSelected ()
     {
-        return this.selection;
+        return selection;
     }
 
     private void Update()

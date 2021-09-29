@@ -2,18 +2,17 @@ using UnityEngine;
 
 public class GridSquare : MonoBehaviour, IInteractable
 {
+    private GridObject currentObject;
 
-    private GridObject currentObject = null;
-
-    [ Tooltip("A prefab to create and place on this tile during Start(). If none, this tile will start empty.") ]
-    [ SerializeField ]
-    private GridObject initialObject = null;
+    [Tooltip("A prefab to create and place on this tile during Start(). If none, this tile will start empty.")]
+    [SerializeField]
+    private GridObject initialObject;
 
     private SpriteRenderer sprRend;
 
     private void Awake()
     {
-        this.sprRend = this.GetComponentInChildren<SpriteRenderer>();
+        sprRend = GetComponentInChildren<SpriteRenderer>();
     }
 
     private void Start()
@@ -23,14 +22,21 @@ public class GridSquare : MonoBehaviour, IInteractable
         {
             var go = GameObject.Instantiate( initialObject );
 
-            this.Place( go );
+            Place( go );
         }
     }
 
     public void Interact( Player player )
     {
         if ( this.currentObject != null )
-            this.currentObject.Interact( player );
+        {
+            this.currentObject.Interact(player);
+        }
+        else
+        {
+            // logic for placing towers should go here
+        }
+        
     }
 
     public void Place( GridObject gridObject )
@@ -45,7 +51,7 @@ public class GridSquare : MonoBehaviour, IInteractable
     //Returns the visual bounds in world space of the grid square.
     public Bounds GetBounds()
     {
-        return this.sprRend.bounds;
+        return sprRend.bounds;
     }
 
 }
