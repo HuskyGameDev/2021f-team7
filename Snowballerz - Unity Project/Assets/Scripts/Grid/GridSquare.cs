@@ -21,6 +21,8 @@ public class GridSquare : MonoBehaviour, IInteractable
 
     private void Start()
     {
+        peaShooter = Resources.Load<PeaShooter>("PeaShooter");
+
         // If a prefab for the initial grid object is defined.
         if ( this.initialObject != null ) 
         {
