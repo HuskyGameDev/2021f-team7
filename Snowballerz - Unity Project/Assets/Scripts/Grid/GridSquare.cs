@@ -4,6 +4,10 @@ public class GridSquare : MonoBehaviour, IInteractable
 {
     private GridObject currentObject;
 
+    // temporary tower for testing purposes
+    [SerializeField]
+    PeaShooter peaShooter;
+
     [Tooltip("A prefab to create and place on this tile during Start(). If none, this tile will start empty.")]
     [SerializeField]
     private GridObject initialObject;
@@ -34,9 +38,8 @@ public class GridSquare : MonoBehaviour, IInteractable
         }
         else
         {
-            // logic for placing towers should go here
+            Place(peaShooter);
         }
-        
     }
 
     public void Place( GridObject gridObject )

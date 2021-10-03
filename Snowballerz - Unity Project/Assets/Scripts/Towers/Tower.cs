@@ -24,8 +24,12 @@ public class Tower : GridObject, IDamageable
     [SerializeField]
     int fireRate;
 
+    [SerializeField]
+    int snowballCostToPlace;
+
     // this will be different for every tower because they are not all the same width and height
-    Vector3 spawnPosOfSnowball;
+    [SerializeField]
+    Transform spawnPosOfSnowball;
 
     Dictionary<HealthState, Sprite> towerSprites = new Dictionary<HealthState, Sprite>();
 
@@ -38,8 +42,11 @@ public class Tower : GridObject, IDamageable
 
     IEnumerator ShootSnowBall()
     {
-        yield return new WaitForSeconds(fireRate);
-        Instantiate(snowball, spawnPosOfSnowball, Quaternion.identity);
+        while (true)
+        {
+            Instantiate(snowball, spawnPosOfSnowball.position, Quaternion.identity);
+            yield return new WaitForSeconds(fireRate);
+        }
     }
 
     void IDamageable.TakeDamage(int amount)

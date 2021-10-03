@@ -15,11 +15,11 @@ public class SnowBall : MonoBehaviour
     {
         if (isFacingRight == true)
         {
-            gameObject.transform.Translate(Vector2.right);
+            gameObject.transform.Translate(Vector2.right * speed * Time.deltaTime);
         }
         else
         {
-            gameObject.transform.Translate(Vector2.left);
+            gameObject.transform.Translate(Vector2.left * speed * Time.deltaTime);
         }
     }
 
@@ -30,6 +30,11 @@ public class SnowBall : MonoBehaviour
         if (damageable != null)
         {
             damageable.TakeDamage(damage);
+
+            // many things can happen when a snowball gets destroyed
+            // sound effect
+            // partice effect
+            Destroy(this.gameObject);
         }
     }
 }

@@ -63,7 +63,16 @@ public class Player : MonoBehaviour, IDamageable
 
             // the selected square is the square which is nearest to the player and is flashing red
             if ( selected != null )
-                selected.selectedSquare.Interact( this );
+            {
+                selected.selectedSquare.Interact(this);
+            }
+            //else
+            //{
+            //    // logic for placing towers goes here
+
+            //    // temporary
+            //    //selected.selectedSquare.Place(peaShooter);
+            //}
         };
 
         // Enable in case the global input actions were previously disabled.

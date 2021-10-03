@@ -33,7 +33,7 @@ public class PlayerGridSelection : MonoBehaviour
     // Private / Unexposed fields. //
 
     // Active gridSelector instance.
-    private Selection selection;
+    private Selection selection = null;
 
     public Selection GetSelected ()
     {
