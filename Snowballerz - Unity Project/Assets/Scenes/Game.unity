@@ -1357,36 +1357,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4512490665860279436, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
   m_PrefabInstance: {fileID: 693001872}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &805913502
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 805913503}
-  m_Layer: 0
-  m_Name: Snowball Spawn Pos
-  m_TagString: Untagged
-  m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &805913503
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 805913502}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.487, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 7519464161777077270}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &809112636
 GameObject:
   m_ObjectHideFlags: 0
@@ -1421,7 +1391,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 7
   snowCount: 0
-  peaShooter: {fileID: 7776506945559831216, guid: 9fea3a8f1572ffb4c9889e45d8e08d59, type: 3}
 --- !u!212 &809112638
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3433,6 +3402,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 962900632}
     m_Modifications:
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
+      propertyPath: peaShooter
+      value: 
+      objectReference: {fileID: 7776506945559831216, guid: 9fea3a8f1572ffb4c9889e45d8e08d59, type: 3}
+    - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: initialObject
       value: 
       objectReference: {fileID: 5028856340645201941, guid: 00558b84ae437944e8aab7034726e2fd, type: 3}
@@ -3753,89 +3726,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a7a09a9b0c16274b82bb91d9adb0760, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1001 &7519464161777077269
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 489825043}
-    m_Modifications:
-    - target: {fileID: 5397850644165401836, guid: 9fea3a8f1572ffb4c9889e45d8e08d59, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5397850644165401836, guid: 9fea3a8f1572ffb4c9889e45d8e08d59, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.69986427
-      objectReference: {fileID: 0}
-    - target: {fileID: 5397850644165401836, guid: 9fea3a8f1572ffb4c9889e45d8e08d59, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.332039
-      objectReference: {fileID: 0}
-    - target: {fileID: 5397850644165401836, guid: 9fea3a8f1572ffb4c9889e45d8e08d59, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5397850644165401836, guid: 9fea3a8f1572ffb4c9889e45d8e08d59, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.22000003
-      objectReference: {fileID: 0}
-    - target: {fileID: 5397850644165401836, guid: 9fea3a8f1572ffb4c9889e45d8e08d59, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5397850644165401836, guid: 9fea3a8f1572ffb4c9889e45d8e08d59, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5397850644165401836, guid: 9fea3a8f1572ffb4c9889e45d8e08d59, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5397850644165401836, guid: 9fea3a8f1572ffb4c9889e45d8e08d59, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5397850644165401836, guid: 9fea3a8f1572ffb4c9889e45d8e08d59, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5397850644165401836, guid: 9fea3a8f1572ffb4c9889e45d8e08d59, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5397850644165401836, guid: 9fea3a8f1572ffb4c9889e45d8e08d59, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5397850644165401836, guid: 9fea3a8f1572ffb4c9889e45d8e08d59, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7776506945559831216, guid: 9fea3a8f1572ffb4c9889e45d8e08d59, type: 3}
-      propertyPath: health
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 7776506945559831216, guid: 9fea3a8f1572ffb4c9889e45d8e08d59, type: 3}
-      propertyPath: fireRate
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7776506945559831216, guid: 9fea3a8f1572ffb4c9889e45d8e08d59, type: 3}
-      propertyPath: snowball
-      value: 
-      objectReference: {fileID: 645925651120394296, guid: 60ddc0dcd6661c54dbeb3d239d6feb5a, type: 3}
-    - target: {fileID: 7776506945559831216, guid: 9fea3a8f1572ffb4c9889e45d8e08d59, type: 3}
-      propertyPath: spawnPosOfSnowball
-      value: 
-      objectReference: {fileID: 805913503}
-    - target: {fileID: 8642980832630307034, guid: 9fea3a8f1572ffb4c9889e45d8e08d59, type: 3}
-      propertyPath: m_Name
-      value: PeaShooter
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 9fea3a8f1572ffb4c9889e45d8e08d59, type: 3}
---- !u!4 &7519464161777077270 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1091816358785498183, guid: 9fea3a8f1572ffb4c9889e45d8e08d59, type: 3}
-  m_PrefabInstance: {fileID: 7519464161777077269}
-  m_PrefabAsset: {fileID: 0}
