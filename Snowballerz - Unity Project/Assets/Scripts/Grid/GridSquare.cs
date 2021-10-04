@@ -40,6 +40,7 @@ public class GridSquare : MonoBehaviour, IInteractable
         }
         else
         {
+            peaShooter = Instantiate(peaShooter);
             Place(peaShooter);
         }
     }
