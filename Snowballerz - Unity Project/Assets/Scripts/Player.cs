@@ -10,8 +10,14 @@ public class Player : MonoBehaviour, IDamageable
     [ SerializeField ]
     float movementSpeed = 7.0f;
 
-    [SerializeField]
+    [ SerializeField ]
     int snowCount;
+
+    [ SerializeField ]
+    SelectionWheelList testList;
+
+    [ SerializeField ]
+    SelectionWheel selectionWheel;
 
     public int SnowCount
     {
@@ -68,6 +74,9 @@ public class Player : MonoBehaviour, IDamageable
 
         // Enable in case the global input actions were previously disabled.
         input.Enable();
+
+        // Test Selection wheel enable
+        this.selectionWheel.ShowWheel( this.testList );
     }
 
     private void Update()
