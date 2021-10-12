@@ -202,7 +202,7 @@ public class SelectionWheel : MonoBehaviour
         StopAllCoroutines();
     }
 
-    public void Move(SelectionMove direction)
+    public void Move( SelectionMove direction )
     {
         // Ignore move requests while there's no current selection.
         if ( this.state != States.Idle ) return;
@@ -438,7 +438,11 @@ public class SelectionWheel : MonoBehaviour
             targetZRot = -anglePerSlot;
             wrappedCase = true;
         }
-        
+
+        // Advance the selection's index.
+        sel.ItemsI = WrapIndex(sel.ItemsI + offset, sel.Config.List.items.Length);
+        sel.ItemSlotI = WrapIndex(sel.ItemSlotI + offset, this.itemSlots.Count);
+
         float t = 0f; // Current time of spin animation from 0 - 1.
 
         // Run animation until finished.
@@ -455,10 +459,6 @@ public class SelectionWheel : MonoBehaviour
         // If this was the wrap-over rotation case, set the final angle to be the wrapped-over angle.
         if ( wrappedCase )
             this.wheelRotate.localRotation = Quaternion.Euler(0, 0, NWTargetRot);
-
-        // Advance the selection's index.
-        sel.ItemsI = WrapIndex(sel.ItemsI + offset, sel.Config.List.items.Length);
-        sel.ItemSlotI = WrapIndex(sel.ItemSlotI + offset, this.itemSlots.Count);
 
         // Spawn the next items at the slots that are this.slotSpawnDistance away from the currently selected.
 
