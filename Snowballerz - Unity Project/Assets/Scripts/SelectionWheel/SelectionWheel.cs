@@ -129,7 +129,107 @@ public class SelectionWheel : MonoBehaviour
 
     private States state = States.Unshown;
 
-    // Show the wheel using a particular SW_List.
+    private void Awake()
+    {
+        this.wheelAnimator = this.GetComponent<Animator>();
+        this.wheelAE = this.GetComponent<SW_AnimationEvents>();
+    }
+
+    private void Start()
+    {
+        // Instantiate item slot GameObejcts.
+        float slotAngleOffset = 360f / wheelItemSlots;
+
+        // Create dividers.
+        for (int i = 0; i < this.wheelItemSlots; i++)
+        {
+            float angle = (slotAngleOffset * i) + (slotAngleOffset / 2);
+
+            float xNorm = Mathf.Sin(angle * Mathf.Deg2Rad);
+            float yNorm = Mathf.Cos(angle * Mathf.Deg2Rad);
+
+            var div = GameObject.Instantiate(this.dividerPrefab);
+
+            div.transform.position = this.transform.position + new Vector3(xNorm, yNorm, 0) * this.itemRadius;
+
+            div.transform.rotation = Quaternion.Euler(0, 0, -angle);
+
+            div.transform.parent = this.itemSlotParent;
+
+            // Set the divider's local position to 0.
+            var oPos = div.transform.localPosition;
+            div.transform.localPosition = new Vector3(oPos.x, oPos.y, 0);
+        }
+
+        // Create item slots.
+        for (int i = 0; i < this.wheelItemSlots; i++)
+        {
+            float angle = slotAngleOffset * i;
+
+            float xNorm = Mathf.Sin(angle * Mathf.Deg2Rad);
+            float yNorm = Mathf.Cos(angle * Mathf.Deg2Rad);
+
+            var slot = new GameObject("Item Slot");
+
+            slot.transform.position = this.transform.position + new Vector3(xNorm, yNorm, 0) * this.itemRadius;
+
+            // Set the rotation of the slots as they are around the center of the wheel.
+            // (Angle needs to be negated to rotation in the proper direction.)
+            slot.transform.rotation = Quaternion.Euler(0, 0, -angle);
+
+            slot.transform.parent = this.itemSlotParent;
+
+            // Set the slot's local position to 0.
+            var oPos = slot.transform.localPosition;
+            slot.transform.localPosition = new Vector3(oPos.x, oPos.y, 0);
+
+            // Set the slot's scale to this.itemSlotScale.
+            slot.transform.localScale = new Vector3(this.itemSlotScale, this.itemSlotScale, 1);
+
+            this.itemSlots.Add(slot.transform);
+        }
+
+        this.setVisible(false);
+
+        // Subscribe to the main wheel animator show/hide visible request event.
+        this.wheelAE.OnHideVisibleRequested += () => { this.setVisible(false); };
+        this.wheelAE.OnShowVisibleRequested += () => { this.setVisible(true); };
+
+        // Subscribe to the selector finished move event to set our state back to idle.
+        this.selectorAE.OnFinishedVertMoving += () =>
+        {
+            if (state == States.Moving)
+            {
+                this.state = States.Idle;
+            }
+        };
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, this.itemRadius);
+
+        float slotAngleOffset = 360f / wheelItemSlots;
+
+        for (int i = 0; i < this.wheelItemSlots; i++)
+        {
+            float xNorm = Mathf.Sin((slotAngleOffset * i) * Mathf.Deg2Rad);
+            float yNorm = Mathf.Cos((slotAngleOffset * i) * Mathf.Deg2Rad);
+
+            if (i == this.slotSpawnDistance || i == this.wheelItemSlots - this.slotSpawnDistance)
+                Gizmos.color = Color.green;
+            else
+                Gizmos.color = Color.black;
+
+            Gizmos.DrawWireSphere(transform.position + new Vector3(xNorm, yNorm, 0) * this.itemRadius, this.itemSlotScale / 2);
+        }
+    }
+
+    /// <summary>
+    /// Shows the wheel, given a particular configuration for the wheel for this new selection.
+    /// </summary>
+    /// <param name="config"></param>
     public void ShowWheel( SelectionConfig config )
     {
         this.activeSelection = new ActiveSelection( config );
@@ -258,102 +358,6 @@ public class SelectionWheel : MonoBehaviour
         var sel = this.activeSelection;
 
         return ( sel.verticalSelection, sel.Config.List.items[sel.ItemsI].ID );
-    }
-
-    private void Awake()
-    {
-        this.wheelAnimator = this.GetComponent< Animator >();
-        this.wheelAE = this.GetComponent< SW_AnimationEvents >();
-    }
-
-    private void Start()
-    {
-        // Instantiate item slot GameObejcts.
-        float slotAngleOffset = 360f / wheelItemSlots;
-
-        // Create dividers.
-        for (int i = 0; i < this.wheelItemSlots; i++)
-        {
-            float angle = ( slotAngleOffset * i ) + ( slotAngleOffset / 2 );
-
-            float xNorm = Mathf.Sin(angle * Mathf.Deg2Rad);
-            float yNorm = Mathf.Cos(angle * Mathf.Deg2Rad);
-
-            var div = GameObject.Instantiate( this.dividerPrefab );
-
-            div.transform.position = this.transform.position + new Vector3(xNorm, yNorm, 0) * this.itemRadius;
-
-            div.transform.rotation = Quaternion.Euler(0, 0, -angle);
-
-            div.transform.parent = this.itemSlotParent;
-
-            // Set the divider's local position to 0.
-            var oPos = div.transform.localPosition;
-            div.transform.localPosition = new Vector3(oPos.x, oPos.y, 0);
-        }
-
-        // Create item slots.
-        for ( int i = 0; i < this.wheelItemSlots; i++ )
-        {
-            float angle = slotAngleOffset * i;
-
-            float xNorm = Mathf.Sin(angle * Mathf.Deg2Rad);
-            float yNorm = Mathf.Cos(angle * Mathf.Deg2Rad);
-
-            var slot = new GameObject("Item Slot");
-
-            slot.transform.position = this.transform.position + new Vector3(xNorm, yNorm, 0) * this.itemRadius;
-
-            // Set the rotation of the slots as they are around the center of the wheel.
-            // (Angle needs to be negated to rotation in the proper direction.)
-            slot.transform.rotation = Quaternion.Euler(0, 0, -angle);
-
-            slot.transform.parent = this.itemSlotParent;
-
-            // Set the slot's local position to 0.
-            var oPos = slot.transform.localPosition;
-            slot.transform.localPosition = new Vector3(oPos.x, oPos.y, 0);
-
-            // Set the slot's scale to this.itemSlotScale.
-            slot.transform.localScale = new Vector3(this.itemSlotScale, this.itemSlotScale, 1);
-
-            this.itemSlots.Add(slot.transform);
-        }
-
-        this.setVisible( false );
-
-        // Subscribe to the main wheel animator show/hide visible request event.
-        this.wheelAE.OnHideVisibleRequested += () => { this.setVisible( false ); };
-        this.wheelAE.OnShowVisibleRequested += () => { this.setVisible( true ); };
-
-        // Subscribe to the selector finished move event to set our state back to idle.
-        this.selectorAE.OnFinishedVertMoving += () =>
-        {
-            if (state == States.Moving)
-            {
-                this.state = States.Idle;
-            }
-        };
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere( transform.position, this.itemRadius );
-
-        float slotAngleOffset = 360f / wheelItemSlots;
-
-        for ( int i = 0; i < this.wheelItemSlots; i++ ) {
-            float xNorm = Mathf.Sin( ( slotAngleOffset * i ) * Mathf.Deg2Rad);
-            float yNorm = Mathf.Cos( ( slotAngleOffset * i ) * Mathf.Deg2Rad);
-
-            if ( i == this.slotSpawnDistance || i == this.wheelItemSlots - this.slotSpawnDistance )
-                Gizmos.color = Color.green;
-            else
-                Gizmos.color = Color.black;
-
-            Gizmos.DrawWireSphere( transform.position + new Vector3( xNorm, yNorm, 0 ) * this.itemRadius , this.itemSlotScale / 2 );
-        }
     }
 
     private void setVisible( bool visible )
