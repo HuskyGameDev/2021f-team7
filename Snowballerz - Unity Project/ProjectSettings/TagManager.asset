@@ -41,3 +41,21 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: SW_Shadow
+    uniqueID: 2215971233
+    locked: 0
+  - name: SW_Background
+    uniqueID: 510123579
+    locked: 0
+  - name: SW_Selector
+    uniqueID: 1390852953
+    locked: 0
+  - name: SW_Top
+    uniqueID: 1583002241
+    locked: 0
+  - name: SW_Bottom
+    uniqueID: 1750861331
+    locked: 0
+  - name: Players
+    uniqueID: 1730702831
+    locked: 0

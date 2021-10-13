@@ -36,6 +36,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "SelectDirection",
+                    "type": "Value",
+                    "id": "53afea95-a28f-4741-814f-903e34662ffd",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -214,6 +222,116 @@
                     "action": "Snowball",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "2D Vector",
+                    "id": "03332339-8421-4e16-9e9e-841d488bf432",
+                    "path": "2DVector(mode=1)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SelectDirection",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "c12a7d7d-946a-4c11-9f1a-28167d64f880",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Desktop",
+                    "action": "SelectDirection",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "267a8fa0-ef2b-4523-9df9-65694ce57a22",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Desktop",
+                    "action": "SelectDirection",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "7a12808e-b194-43de-a9a7-c849920b4f90",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Desktop",
+                    "action": "SelectDirection",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "7b972d8f-6484-4e4d-aa83-1cbb62ac9adc",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Desktop",
+                    "action": "SelectDirection",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "2D Vector",
+                    "id": "ba5811be-5da0-4a7f-8dbd-0cd47cf51d13",
+                    "path": "2DVector(mode=1)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Arcade Controls",
+                    "action": "SelectDirection",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "94552048-b33f-4627-ba9b-41fc28a94b51",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Arcade Controls",
+                    "action": "SelectDirection",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "5dbb71e4-9c1c-4ccc-9b8f-ce0f9251945e",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Arcade Controls",
+                    "action": "SelectDirection",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "b34fcb84-6f3c-41cc-a980-e5a59bc05423",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Arcade Controls",
+                    "action": "SelectDirection",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "81739876-cafa-4cab-98bb-7e098252659a",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Arcade Controls",
+                    "action": "SelectDirection",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         },
@@ -250,6 +368,14 @@
                     "type": "Button",
                     "id": "2e1dc9f1-e790-4034-a622-330bf2f3fde0",
                     "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "SelectDirection",
+                    "type": "Value",
+                    "id": "d11d301c-fbdc-4eba-accc-67bfcbb704a3",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
                 }
@@ -430,6 +556,116 @@
                     "action": "Snowball",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "2D Vector",
+                    "id": "fee7cab8-0b57-4071-a165-58e59ef6beda",
+                    "path": "2DVector(mode=1)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Desktop",
+                    "action": "SelectDirection",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "8640361a-9f0c-4983-895a-6cb3f54971c3",
+                    "path": "<Keyboard>/i",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Desktop",
+                    "action": "SelectDirection",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "5fd73d8b-65b3-478c-8daf-a52c374a4d85",
+                    "path": "<Keyboard>/k",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Desktop",
+                    "action": "SelectDirection",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "f705ac75-d330-4cc4-9a91-4f0905ee10c2",
+                    "path": "<Keyboard>/j",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Desktop",
+                    "action": "SelectDirection",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "9b448a63-b095-4de3-9727-c1474bb25f70",
+                    "path": "<Keyboard>/l",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Desktop",
+                    "action": "SelectDirection",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "2D Vector",
+                    "id": "a1ade1fa-1251-42c2-ba2c-c72c4a9d583a",
+                    "path": "2DVector(mode=1)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Arcade Controls",
+                    "action": "SelectDirection",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "d36945a0-2769-4165-b78e-11829367ee3a",
+                    "path": "<Keyboard>/i",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Arcade Controls",
+                    "action": "SelectDirection",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "fab63bcc-9619-4127-853e-d76b58603e3f",
+                    "path": "<Keyboard>/k",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Arcade Controls",
+                    "action": "SelectDirection",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "68500928-f13e-4f7a-a4a8-c24557c9d22f",
+                    "path": "<Keyboard>/j",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Arcade Controls",
+                    "action": "SelectDirection",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "18055760-0c05-46c4-bb45-2634fdc66b4d",
+                    "path": "<Keyboard>/l",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Arcade Controls",
+                    "action": "SelectDirection",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }
