@@ -416,32 +416,17 @@ public class SelectionWheel : MonoBehaviour
                 yield break;
         }
 
-        // Original wheel z-rotation.
-        float origZRot = this.wheelRotate.localRotation.eulerAngles.z;
-
         var sel = this.activeSelection;
         var origSlot = sel.ItemSlotI;
         var targetSlot = WrapIndex(sel.ItemSlotI + offset, this.itemSlots.Count);
 
         var anglePerSlot = 360f / wheelItemSlots;
 
-        var NWTargetRot = targetSlot * anglePerSlot; // Non-wrapped target rotation.
-        var targetZRot = NWTargetRot;
+        var eulerTargetRot = targetSlot * anglePerSlot;
 
-        bool wrappedCase = false;
-
-        // If the target rotation jumps from the first to last slot.
-        if (targetSlot == 0 && origSlot == this.itemSlots.Count - 1)
-        {
-            targetZRot = 360;
-            wrappedCase = true;
-        }
-        // If the target rotation jumps from the last to first slot.}
-        else if (targetSlot == this.itemSlots.Count - 1 && origSlot == 0)
-        {
-            targetZRot = -anglePerSlot;
-            wrappedCase = true;
-        }
+        // Get the original and target rotations as quaternions.
+        var originalRot = this.wheelRotate.localRotation;
+        var targetRot = Quaternion.Euler( new Vector3( 0, 0, eulerTargetRot ) );
 
         // Advance the selection's index.
         sel.ItemsI = WrapIndex(sel.ItemsI + offset, sel.Config.List.items.Length);
@@ -453,19 +438,14 @@ public class SelectionWheel : MonoBehaviour
         while ( t <= 1f ) {
             var animT = this.animationCurve.Evaluate( t );
 
-            this.wheelRotate.localRotation = Quaternion.Euler(0, 0, Mathf.Lerp( origZRot, targetZRot, animT ));
+            this.wheelRotate.localRotation = Quaternion.Slerp( originalRot, targetRot, animT );
 
             t += this.spinSpeed * Time.deltaTime;
 
             yield return new WaitForEndOfFrame();
         }
 
-        // If this was the wrap-over rotation case, set the final angle to be the wrapped-over angle.
-        if ( wrappedCase )
-            this.wheelRotate.localRotation = Quaternion.Euler(0, 0, NWTargetRot);
-
         // Spawn the next items at the slots that are this.slotSpawnDistance away from the currently selected.
-
         var spawnDist = (int)this.slotSpawnDistance;
 
         // Left
