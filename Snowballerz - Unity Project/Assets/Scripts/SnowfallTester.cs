@@ -19,22 +19,22 @@ public class SnowfallTester : MonoBehaviour
         frames++;
 	if (frames % 50 == 0)
 	{
-		sc.stopHere(2);
+		sc.stopHere(1);
 	}
 
 	if (frames % 75 == 0)
 	{
-		sc.goThroughHere(2);
+		sc.goThroughHere(1);
 	}
 
 	if (frames % 30 == 0)
 	{
-		sc.stopHere (3);
+		sc.stopHere (2);
 	}
 
 	if (frames % 101 == 0)
 	{
-		sc.goThroughHere(3);
+		sc.goThroughHere(2);
 	}
     }
 }
