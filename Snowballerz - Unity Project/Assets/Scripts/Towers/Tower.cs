@@ -15,6 +15,9 @@ public class Tower : GridObject, IDamageable
     [SerializeField]
     SnowBall snowball;
 
+    [SerializeField]
+    new string name;
+
     // its only set to true temporarly. Later we need to know which direction player 1 and 2 is facing
     bool facingRight = true;
 
@@ -33,11 +36,26 @@ public class Tower : GridObject, IDamageable
 
     Dictionary<HealthState, Sprite> towerSprites = new Dictionary<HealthState, Sprite>();
 
+    [HideInInspector]
+    public bool placed = false;
+
+    public int id;
+
     void Start()
     {
         snowball.isFacingRight = facingRight;
 
+        //if (placed == true)
+        //{
+        //    StartCoroutine(ShootSnowBall());
+        //}
+
         StartCoroutine(ShootSnowBall());
+    }
+
+    void Update()
+    {
+
     }
 
     IEnumerator ShootSnowBall()
@@ -56,6 +74,6 @@ public class Tower : GridObject, IDamageable
 
     public override void Interact(Player player)
     {
-        throw new System.NotImplementedException();
+        print("Interact with tower: " + name);
     }
 }
