@@ -210,6 +210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   snowball: {fileID: 645925651120394296, guid: 60ddc0dcd6661c54dbeb3d239d6feb5a, type: 3}
+  name: PeaShooter
   health: 100
   fireRate: 2
   snowballCostToPlace: 0
