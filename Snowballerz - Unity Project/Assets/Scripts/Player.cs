@@ -88,10 +88,10 @@ public class Player : MonoBehaviour, IDamageable
                 Debug.Log("Selected ID: " + ( (seld.Item1 == SelectionWheel.VerticalOptions.Top) ? seld.Item2.ToString() : "BottomOption!") );
 
                 // the selected square is the square which is nearest to the player and is flashing red
-                if (selected != null)
+                if ( selected != null )
                 {
                     // if the grid object on the selected square was empty, we can place a tower
-                    if(!selected.selectedSquare.Interact(this))
+                    if( !selected.selectedSquare.HasCurrentObject() )
                     {
                         foreach(var tower in towers)
                         {

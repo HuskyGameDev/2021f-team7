@@ -26,18 +26,10 @@ public class GridSquare : MonoBehaviour, IInteractable
         }
     }
 
-    //public void Interact( Player player )
-    //{
-    //    if ( this.currentObject != null )
-    //    {
-    //        this.currentObject.Interact(player);
-    //    }
-    //    else
-    //    {
-    //        peaShooter = Instantiate(peaShooter);
-    //        Place(peaShooter);
-    //    }
-    //}
+    public bool HasCurrentObject()
+    {
+        return this.currentObject != null;
+    }
 
     public bool Interact(Player player)
     {
