@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using System.Collections.Generic;
 
 [ RequireComponent( typeof( PlayerGridSelection ) ) ]
 public class Player : MonoBehaviour, IDamageable
@@ -21,6 +22,12 @@ public class Player : MonoBehaviour, IDamageable
 
     [SerializeField]
     GameObject destroyItem;
+
+    [SerializeField]
+    PeaShooter peaShooter;
+
+    [SerializeField]
+    List<Tower> towers = new List<Tower>();
 
     public int SnowCount
     {
@@ -70,12 +77,36 @@ public class Player : MonoBehaviour, IDamageable
             movementDirection = Vector2.zero;
         };
 
+        // R button
         input.Player_1.Action.performed += ctx => 
         {
+            var selected = this.playerSelection.GetSelected();
+
             if ( this.selectingFromWheel ) {
                 var seld = this.selectionWheel.GetSelected();
 
                 Debug.Log("Selected ID: " + ( (seld.Item1 == SelectionWheel.VerticalOptions.Top) ? seld.Item2.ToString() : "BottomOption!") );
+
+                // the selected square is the square which is nearest to the player and is flashing red
+                if ( selected != null )
+                {
+                    // if the grid object on the selected square was empty, we can place a tower
+                    if (!selected.selectedSquare.HasCurrentObject())
+                    {
+                        foreach (var tower in towers)
+                        {
+                            if (tower.id == seld.Item2)
+                            {
+                                selected.selectedSquare.Place(tower);
+                                tower.placed = true;
+                            }
+                        }
+                    }
+                    else 
+                    {
+                        Debug.Log( "Couldn't build onto GridSquare: Has a GridObject on it!" );
+                    }
+                }
 
                 this.selectionWheel.HideWheel();
                 this.lastSelectedItem = seld.Item2;
@@ -83,22 +114,14 @@ public class Player : MonoBehaviour, IDamageable
                 return;
             }
 
-            var selected = this.playerSelection.GetSelected();
-
             // the selected square is the square which is nearest to the player and is flashing red
-            if ( selected != null )
+            if (selected != null)
             {
                 selected.selectedSquare.Interact(this);
             }
-            //else
-            //{
-            //    // logic for placing towers goes here
-
-            //    // temporary
-            //    //selected.selectedSquare.Place(peaShooter);
-            //}
         };
 
+        // T button
         input.Player_1.Select.performed += ctx =>
         {
             this.selectingFromWheel = true;
