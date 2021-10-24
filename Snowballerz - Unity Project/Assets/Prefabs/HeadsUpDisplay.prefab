@@ -1500,8 +1500,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30fd90ca3f873924e8b1bdd9744bb17f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScoreText: {fileID: 0}
-  ResourceText: {fileID: 0}
+  ScoreText: {fileID: 6609860470964994204}
+  ResourceText: {fileID: 6609860469291891948}
   ToolSelector: {fileID: 0}
 --- !u!1 &6609860470949410717
 GameObject:
