@@ -87,6 +87,27 @@ public class Player : MonoBehaviour, IDamageable
 
                 Debug.Log("Selected ID: " + ( (seld.Item1 == SelectionWheel.VerticalOptions.Top) ? seld.Item2.ToString() : "BottomOption!") );
 
+                // the selected square is the square which is nearest to the player and is flashing red
+                if ( selected != null )
+                {
+                    // if the grid object on the selected square was empty, we can place a tower
+                    if (!selected.selectedSquare.HasCurrentObject())
+                    {
+                        foreach (var tower in towers)
+                        {
+                            if (tower.id == seld.Item2)
+                            {
+                                selected.selectedSquare.Place(tower);
+                                tower.placed = true;
+                            }
+                        }
+                    }
+                    else 
+                    {
+                        Debug.Log( "Couldn't build onto GridSquare: Has a GridObject on it!" );
+                    }
+                }
+
                 this.selectionWheel.HideWheel();
                 this.lastSelectedItem = seld.Item2;
                 this.selectingFromWheel = false;
