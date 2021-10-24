@@ -15,10 +15,12 @@ public class HUD : MonoBehaviour
     [Header("Player 1 Elements")]
     public Text ScoreText;
     public Text ResourceText;
-    public UIRadio ToolSelector;
+    public UiCounter WeaponAmmo;
+    public Timer timer;
 
     void Start()
     {
+
         //Get the player, for now just one, and assign its resource count change function to the hud's.
         Player.OnSnowCountChange += UpdateResourceCount;
 
