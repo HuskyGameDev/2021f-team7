@@ -201,16 +201,14 @@ public class Player : MonoBehaviour, IDamageable
     {
         var dir = this.movementDirection;
         
-        // If the player is not moving / cannot move.
-        if (this.selectingFromWheel || dir == Vector2.zero)
+        // If the player should stop since they're selecting from the wheel.
+        if ( this.selectingFromWheel )
         {
-            this.animator.SetBool("Moving", false);
             return;
         }
+
         // If the player is to move.
         this.rb.position += this.movementDirection * Time.deltaTime * movementSpeed;
-
-        this.animator.SetBool("Moving", true);
 
         // Set the animation flip direction.
         if (dir.x > 0)
