@@ -55,10 +55,17 @@ public class Player : MonoBehaviour, IDamageable
 
     private int lastSelectedItem = 0;
 
+    private Animator animator;
+
+    private Vector2 lastPosition;
+
     private void Awake()
     {
         this.rb = this.GetComponent<Rigidbody2D>();
         this.playerSelection = this.GetComponent<PlayerGridSelection>();
+        this.animator = this.GetComponent<Animator>();
+
+        this.lastPosition = this.transform.position;
     }
 
     private void Start()
@@ -174,14 +181,46 @@ public class Player : MonoBehaviour, IDamageable
     private void Update()
     {
         // Move the player if not currently selecting from a selection wheel.
-        if ( !this.selectingFromWheel ) {
-            MovePlayer();
-        }
+        MovePlayer();
     }
 
+    private void FixedUpdate()
+    {
+        var currentPos = (Vector2) this.transform.position;
+        var movedDist = currentPos - this.lastPosition;
+
+        animator.SetFloat( "CurrentSpeed", movedDist.magnitude );
+
+        this.lastPosition = currentPos;
+    }
+
+    /// <summary>
+    /// Performs the movement, checking for movement, and movement animation triggering for the player.
+    /// </summary>
     private void MovePlayer()
     {
+        var dir = this.movementDirection;
+        
+        // If the player is not moving / cannot move.
+        if (this.selectingFromWheel || dir == Vector2.zero)
+        {
+            this.animator.SetBool("Moving", false);
+            return;
+        }
+        // If the player is to move.
         this.rb.position += this.movementDirection * Time.deltaTime * movementSpeed;
+
+        this.animator.SetBool("Moving", true);
+
+        // Set the animation flip direction.
+        if (dir.x > 0)
+        {
+            this.animator.SetBool( "FacingRight", true );
+        }
+        else if (dir.x < 0)
+        {
+            this.animator.SetBool( "FacingRight", false );
+        }
     }
 
     public void TakeDamage(int amount)
