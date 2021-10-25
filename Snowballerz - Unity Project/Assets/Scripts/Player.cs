@@ -57,11 +57,15 @@ public class Player : MonoBehaviour, IDamageable
 
     private Animator animator;
 
+    private Vector2 lastPosition;
+
     private void Awake()
     {
         this.rb = this.GetComponent<Rigidbody2D>();
         this.playerSelection = this.GetComponent<PlayerGridSelection>();
         this.animator = this.GetComponent<Animator>();
+
+        this.lastPosition = this.transform.position;
     }
 
     private void Start()
@@ -178,6 +182,16 @@ public class Player : MonoBehaviour, IDamageable
     {
         // Move the player if not currently selecting from a selection wheel.
         MovePlayer();
+    }
+
+    private void FixedUpdate()
+    {
+        var currentPos = (Vector2) this.transform.position;
+        var movedDist = currentPos - this.lastPosition;
+
+        animator.SetFloat( "CurrentSpeed", movedDist.magnitude );
+
+        this.lastPosition = currentPos;
     }
 
     /// <summary>
