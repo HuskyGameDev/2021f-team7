@@ -13,6 +13,9 @@ public class PlayerGridSelection : MonoBehaviour
     // Public / Exposed fields. //
 
     [ SerializeField ]
+    private MapGrid.Players player;
+
+    [ SerializeField ]
     private GridSelector gridSelectorPrefab;
 
     // Note: This field is likely temporary.
@@ -53,8 +56,7 @@ public class PlayerGridSelection : MonoBehaviour
         // Iterate through each grid and find the nearest.
         foreach ( var line in this.mapGrid.Lines )
         {
-            // TODO: Eventually switch which line array to check in based on which player you are.
-            foreach ( var sq in line.P1 )
+            foreach ( var sq in MapGrid.GetForPlayer( line, this.player ) )
             {
                 var sqDist = Vector2.Distance( playerCenter.position, sq.transform.position );
 

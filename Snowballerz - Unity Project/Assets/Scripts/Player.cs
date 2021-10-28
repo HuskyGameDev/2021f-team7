@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using System.Collections.Generic;
+using static PlayerInputWrapper;
 
 [ RequireComponent( typeof( PlayerGridSelection ) ) ]
 public class Player : MonoBehaviour, IDamageable
@@ -8,6 +9,9 @@ public class Player : MonoBehaviour, IDamageable
     public static event Action<int> OnSnowCountChange;
 
     // Public / Exposed fields. //
+    [ SerializeField ]
+    PlayerInputWrapper.Players player;
+
     [ SerializeField ]
     float movementSpeed = 7.0f;
 
@@ -20,13 +24,13 @@ public class Player : MonoBehaviour, IDamageable
     [ SerializeField ]
     SW_List testList;
 
-    [SerializeField]
+    [ SerializeField ]
     GameObject destroyItem;
 
-    [SerializeField]
+    [ SerializeField ]
     PeaShooter peaShooter;
 
-    [SerializeField]
+    [ SerializeField ]
     List<Tower> towers = new List<Tower>();
 
     public int SnowCount
@@ -70,22 +74,27 @@ public class Player : MonoBehaviour, IDamageable
 
     private void Start()
     {
-        SnowCount = 0;
+        this.SnowCount = 0;
 
         var input = GlobalInputActions.Instance;
 
-        input.Player_1.Move.performed += ctx => 
+        var moveIA = GetInputAction( input, Actions.Move, this.player );
+        var actionIA = GetInputAction( input, Actions.Action, this.player );
+        var selectIA = GetInputAction( input, Actions.Select, this.player );
+        var selectDirectionIA = GetInputAction( input, Actions.SelectDirection, this.player );
+
+        moveIA.performed += ctx => 
         {
             movementDirection = ctx.ReadValue<Vector2>();
         };
 
-        input.Player_1.Move.canceled += ctx =>
+        moveIA.canceled += ctx =>
         {
             movementDirection = Vector2.zero;
         };
 
         // R button
-        input.Player_1.Action.performed += ctx => 
+        actionIA.performed += ctx => 
         {
             var selected = this.playerSelection.GetSelected();
 
@@ -129,7 +138,7 @@ public class Player : MonoBehaviour, IDamageable
         };
 
         // T button
-        input.Player_1.Select.performed += ctx =>
+        selectIA.performed += ctx =>
         {
             this.selectingFromWheel = true;
             this.selectionWheel.ShowWheel( 
@@ -142,7 +151,7 @@ public class Player : MonoBehaviour, IDamageable
             );
         };
 
-        input.Player_1.Select.canceled += ctx =>
+        selectIA.canceled += ctx =>
         {
             // If we've already stopped selecting from the wheel, return;
             if (!this.selectingFromWheel) return;
@@ -153,7 +162,7 @@ public class Player : MonoBehaviour, IDamageable
             this.selectionWheel.HideWheel();
         };
 
-        input.Player_1.SelectDirection.performed += ctx =>
+        selectDirectionIA.performed += ctx =>
         {
             var vec = ctx.ReadValue<Vector2>();
 
