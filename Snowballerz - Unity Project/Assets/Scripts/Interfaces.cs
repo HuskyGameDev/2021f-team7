@@ -11,3 +11,8 @@ interface IDamageable
 {
     void TakeDamage(int amount);
 }
+
+interface IPlaceableByPlayer
+{
+    void Place(Player player);
+}

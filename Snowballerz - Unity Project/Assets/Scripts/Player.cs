@@ -104,8 +104,12 @@ public class Player : MonoBehaviour, IDamageable
                         {
                             if (tower.id == seld.Item2)
                             {
-                                selected.selectedSquare.Place(tower);
-                                tower.placed = true;
+                                if (SnowCount >= tower.SnowBallCost)
+                                {
+                                    selected.selectedSquare.Place(tower);
+                                    SnowCount -= tower.SnowBallCost;
+                                    tower.Placed = true;
+                                }
                             }
                         }
                     }

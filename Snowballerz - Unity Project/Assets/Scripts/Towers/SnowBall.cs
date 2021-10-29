@@ -8,25 +8,29 @@ public class SnowBall : MonoBehaviour
     [SerializeField]
     int damage;
 
-    [HideInInspector]
-    public bool isFacingRight;
+    bool wasShot;
+
+    Vector2 direction;
 
     void Update()
     {
-        if (isFacingRight == true)
+        if (wasShot == true)
         {
-            gameObject.transform.Translate(Vector2.right * speed * Time.deltaTime);
+            gameObject.transform.Translate(direction * speed * Time.deltaTime);
         }
-        else
-        {
-            gameObject.transform.Translate(Vector2.left * speed * Time.deltaTime);
-        }
+    }
+
+    public void Shoot(Vector2 directionToShoot)
+    {
+        direction = directionToShoot;
+        wasShot = true;
+        Destroy(gameObject, 5.0f);
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
         IDamageable damageable = collision.GetComponent<IDamageable>();
-        
+
         if (damageable != null)
         {
             damageable.TakeDamage(damage);
@@ -34,7 +38,7 @@ public class SnowBall : MonoBehaviour
             // many things can happen when a snowball gets destroyed
             // sound effect
             // partice effect
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
     }
 }
