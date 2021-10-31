@@ -53,11 +53,6 @@ public class Tower : GridObject, IDamageable
         StartCoroutine(ShootSnowBall());
     }
 
-    void Update()
-    {
-
-    }
-
     IEnumerator ShootSnowBall()
     {
         while (true)
@@ -67,13 +62,18 @@ public class Tower : GridObject, IDamageable
         }
     }
 
-    void IDamageable.TakeDamage(int amount)
+    void IDamageable.TakeDamage( int amount )
     {
-        throw new System.NotImplementedException();
+        this.health = Mathf.Max( this.health - amount, 0 );
+
+        if ( this.health == 0 ) {
+            Debug.Log( "Tower destroyed!" );
+            GameObject.Destroy( this.gameObject );
+        }
     }
 
     public override void Interact(Player player)
     {
-        print("Interact with tower: " + name);
+        Debug.Log( "Interact with tower: " + name );
     }
 }

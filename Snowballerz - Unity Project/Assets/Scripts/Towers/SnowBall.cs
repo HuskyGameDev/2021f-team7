@@ -27,14 +27,14 @@ public class SnowBall : MonoBehaviour
     {
         IDamageable damageable = collision.GetComponent<IDamageable>();
         
-        if (damageable != null)
+        if ( damageable != null )
         {
             damageable.TakeDamage(damage);
 
             // many things can happen when a snowball gets destroyed
             // sound effect
             // partice effect
-            Destroy(this.gameObject);
+            Destroy( this.gameObject );
         }
     }
 }

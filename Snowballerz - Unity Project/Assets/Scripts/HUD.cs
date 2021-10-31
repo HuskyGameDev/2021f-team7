@@ -12,30 +12,39 @@ public class HUD : MonoBehaviour
     // Start is called before the first frame update
     //Todo: Alex is there a better way to organize?
 
+    public Player player1;
+    public Player player2;
+
     [Header("Player 1 Elements")]
-    public Text ScoreText;
-    public Text ResourceText;
-    public UIRadio ToolSelector;
+    public Text    P1ScoreText;
+    public Text    P1ResourceText;
+    public UIRadio P1ToolSelector;
+
+    [Header("Player 2 Elements")]
+    public Text    P2ScoreText;
+    public Text    P2ResourceText;
+    public UIRadio P2ToolSelector;
 
     void Start()
     {
         //Get the player, for now just one, and assign its resource count change function to the hud's.
-        Player.OnSnowCountChange += UpdateResourceCount;
+        player1.OnSnowCountChange += P1UpdateResourceCount;
+        player2.OnSnowCountChange += P2UpdateResourceCount;
 
         //We should just be at 0 at start, so we can just run this and others after.
-        UpdateResourceCount(0);
+        P1UpdateResourceCount(0);
+        P2UpdateResourceCount(0);
 
     }
 
-    // Update is called once per frame
-    void Update()
+    void P1UpdateResourceCount( int resourceCount  )
     {
-        
+        P1ResourceText.text = resourceCount.ToString();
     }
 
-    void UpdateResourceCount(int resourceCount)
+    void P2UpdateResourceCount( int resourceCount )
     {
-        ResourceText.text = resourceCount.ToString();
+        P2ResourceText.text = resourceCount.ToString();
     }
 
 }

@@ -6,7 +6,7 @@ using static PlayerInputWrapper;
 [ RequireComponent( typeof( PlayerGridSelection ) ) ]
 public class Player : MonoBehaviour, IDamageable
 {
-    public static event Action<int> OnSnowCountChange;
+    public event Action<int> OnSnowCountChange;
 
     // Public / Exposed fields. //
     [ SerializeField ]
@@ -113,7 +113,7 @@ public class Player : MonoBehaviour, IDamageable
                         {
                             if (tower.id == seld.Item2)
                             {
-                                selected.selectedSquare.Place(tower);
+                                selected.selectedSquare.Place( tower );
                                 tower.placed = true;
                             }
                         }
