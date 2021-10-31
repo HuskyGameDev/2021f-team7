@@ -1,11 +1,13 @@
 using UnityEngine;
 using System;
 using System.Collections.Generic;
+using static Snoballerz.UI.HUD;
 
 [ RequireComponent( typeof( PlayerGridSelection ) ) ]
 public class Player : MonoBehaviour, IDamageable
 {
-    public static event Action<int> OnSnowCountChange;
+    public static event Action<int, plytype> OnSnowCountChange;
+    public static event Action<uint, plytype> OnScoreChanged;
 
     // Public / Exposed fields. //
     [ SerializeField ]
@@ -29,6 +31,14 @@ public class Player : MonoBehaviour, IDamageable
     [SerializeField]
     List<Tower> towers = new List<Tower>();
 
+    //Maybe not be public in the future? Or keep it to make it easier to just know our player.
+    //Yes we can identify by tag but think of how many times we need to find the player.
+    [SerializeField]
+    public plytype plyID = plytype.PLAYER_1;
+
+    [SerializeField]
+    uint score;
+
     public int SnowCount
     {
         get { return snowCount; }
@@ -39,7 +49,22 @@ public class Player : MonoBehaviour, IDamageable
 
             if (OnSnowCountChange != null)
             {
-                OnSnowCountChange(snowCount);
+                OnSnowCountChange(snowCount, plyID);
+            }
+        }
+    }
+
+    public uint Score
+    {
+        get { return score; }
+
+        set
+        {
+            score = value;
+
+            if (OnScoreChanged != null)
+            {
+                OnScoreChanged(score, plyID);
             }
         }
     }
@@ -64,6 +89,7 @@ public class Player : MonoBehaviour, IDamageable
     private void Start()
     {
         SnowCount = 0;
+        Score = 0;
 
         var input = GlobalInputActions.Instance;
 
