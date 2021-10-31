@@ -48,7 +48,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 4
   damage: 5
-  isFacingRight: 1
 --- !u!58 &5871013393434013247
 CircleCollider2D:
   m_ObjectHideFlags: 0

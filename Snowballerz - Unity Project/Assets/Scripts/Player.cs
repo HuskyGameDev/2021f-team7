@@ -113,8 +113,15 @@ public class Player : MonoBehaviour, IDamageable
                         {
                             if (tower.id == seld.Item2)
                             {
-                                selected.selectedSquare.Place( tower );
-                                tower.placed = true;
+                                if (SnowCount >= tower.SnowBallCost)
+                                {
+                                    var go = GameObject.Instantiate( tower );
+                                    // Assign the tower to the player collision layer that we're on.
+                                    go.gameObject.layer = this.gameObject.layer;
+                                    selected.selectedSquare.Place( go );
+                                    SnowCount -= tower.SnowBallCost;
+                                    tower.Placed = true;
+                                }
                             }
                         }
                     }
