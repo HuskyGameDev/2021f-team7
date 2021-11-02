@@ -168,14 +168,11 @@ MonoBehaviour:
   movementSpeed: 7
   snowCount: 0
   selectionWheel: {fileID: 6224695799459990143}
-  testList:
-    items:
-    - Visual: {fileID: 4539338874200799932, guid: e7614204d50b83748815927e1cf97892, type: 3}
-      ID: 0
+  towerSWList:
+  - visual: {fileID: 4539338874200799932, guid: e7614204d50b83748815927e1cf97892, type: 3}
+    prefab: {fileID: 8642980832630307034, guid: 9fea3a8f1572ffb4c9889e45d8e08d59, type: 3}
+    cost: 5
   destroyItem: {fileID: 9016153037212181022, guid: d2d34e9f7d45c3b49ba0e67118623482, type: 3}
-  peaShooter: {fileID: 0}
-  towers:
-  - {fileID: 7776506945559831216, guid: 9fea3a8f1572ffb4c9889e45d8e08d59, type: 3}
 --- !u!114 &6224695799777292136
 MonoBehaviour:
   m_ObjectHideFlags: 0

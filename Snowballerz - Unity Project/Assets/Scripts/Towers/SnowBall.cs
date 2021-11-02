@@ -12,11 +12,18 @@ public class SnowBall : MonoBehaviour
 
     Vector2 direction;
 
+    private Rigidbody2D rb;
+
+    private void Awake()
+    {
+        this.rb = this.GetComponent<Rigidbody2D>();
+    }
+
     void Update()
     {
         if (wasShot == true)
         {
-            gameObject.transform.Translate(direction * speed * Time.deltaTime);
+            this.rb.position += direction * speed * Time.deltaTime;
         }
     }
 
@@ -28,11 +35,11 @@ public class SnowBall : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        IDamageable damageable = collision.GetComponent<IDamageable>();
+        IDamageable damageable = collision.GetComponent< IDamageable >();
         
         if ( damageable != null )
         {
-            damageable.TakeDamage(damage);
+            damageable.TakeDamage( damage );
 
             // many things can happen when a snowball gets destroyed
             // sound effect

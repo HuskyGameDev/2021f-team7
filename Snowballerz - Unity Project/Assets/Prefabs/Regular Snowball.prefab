@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3258312336250150439}
   m_Layer: 0
   m_Name: Regular Snowball
-  m_TagString: Untagged
+  m_TagString: Snowball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

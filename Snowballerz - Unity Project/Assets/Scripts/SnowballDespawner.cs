@@ -4,19 +4,15 @@ using UnityEngine;
 
 public class SnowballDespawner : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    /// <summary>
+    /// Destroy all GameObjects which have a "Snowball" tag.
+    /// </summary>
+    /// <param name="collision"></param>
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log("Bruh");
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log("Bruh");
+        if ( collision.gameObject.tag.Equals( "Snowball" ) ) 
+        {
+            GameObject.Destroy( collision.gameObject );
+        }
     }
 }

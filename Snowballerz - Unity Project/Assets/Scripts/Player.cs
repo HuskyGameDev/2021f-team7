@@ -22,16 +22,10 @@ public class Player : MonoBehaviour, IDamageable
     SelectionWheel selectionWheel;
 
     [ SerializeField ]
-    SW_List testList;
+    BuildableSelection[] towerSWList;
 
     [ SerializeField ]
     GameObject destroyItem;
-
-    [ SerializeField ]
-    PeaShooter peaShooter;
-
-    [ SerializeField ]
-    List<Tower> towers = new List<Tower>();
 
     public int SnowCount
     {
@@ -107,22 +101,18 @@ public class Player : MonoBehaviour, IDamageable
                 if ( selected != null )
                 {
                     // if the grid object on the selected square was empty, we can place a tower
-                    if (!selected.selectedSquare.HasCurrentObject())
+                    if ( !selected.selectedSquare.HasCurrentObject() )
                     {
-                        foreach (var tower in towers)
+                        var itemTuple = ((GameObject, int))seld.Item2;
+
+                        if (SnowCount >= itemTuple.Item2)
                         {
-                            if (tower.id == seld.Item2)
-                            {
-                                if (SnowCount >= tower.SnowBallCost)
-                                {
-                                    var go = GameObject.Instantiate( tower );
-                                    // Assign the tower to the player collision layer that we're on.
-                                    go.gameObject.layer = this.gameObject.layer;
-                                    selected.selectedSquare.Place( go );
-                                    SnowCount -= tower.SnowBallCost;
-                                    tower.Placed = true;
-                                }
-                            }
+                            var go = GameObject.Instantiate(itemTuple.Item1);
+                            // Assign the tower to the player collision layer that we're on.
+                            go.gameObject.layer = this.gameObject.layer;
+                            selected.selectedSquare.Place(go.GetComponent<GridObject>());
+                            SnowCount -= itemTuple.Item2;
+                            go.GetComponent<Tower>().Placed = true;
                         }
                     }
                     else 
@@ -132,7 +122,7 @@ public class Player : MonoBehaviour, IDamageable
                 }
 
                 this.selectionWheel.HideWheel();
-                this.lastSelectedItem = seld.Item2;
+                this.lastSelectedItem = seld.Item3;
                 this.selectingFromWheel = false;
                 return;
             }
@@ -148,9 +138,23 @@ public class Player : MonoBehaviour, IDamageable
         selectIA.performed += ctx =>
         {
             this.selectingFromWheel = true;
+
+            // Create selection list for wheel.
+            List<SW_Item> items = new List<SW_Item>();
+            
+            foreach ( var sel in this.towerSWList ) 
+            {
+                SW_Item item = new SW_Item();
+
+                item.Visual = sel.visual;
+                // Assign the SW_Item's value to be a tuple of the tower's prefab & cost.
+                item.Value = (sel.prefab, sel.cost);
+                items.Add(item);
+            }
+
             this.selectionWheel.ShowWheel( 
                 new SelectionWheel.SelectionConfig (
-                    this.testList,
+                    new SW_List( items.ToArray() ),
                     this.lastSelectedItem,
                     true,
                     this.destroyItem
@@ -164,7 +168,7 @@ public class Player : MonoBehaviour, IDamageable
             if (!this.selectingFromWheel) return;
 
             var seld = this.selectionWheel.GetSelected();
-            this.lastSelectedItem = seld.Item2;
+            this.lastSelectedItem = seld.Item3;
             this.selectingFromWheel = false;
             this.selectionWheel.HideWheel();
         };
