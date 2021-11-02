@@ -4206,22 +4206,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6224695799777292055, guid: 8c67ad89e24564c4a90b3f80825df579, type: 3}
-      propertyPath: towerSWList.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6224695799777292055, guid: 8c67ad89e24564c4a90b3f80825df579, type: 3}
-      propertyPath: towerSWList.Array.data[0].cost
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6224695799777292055, guid: 8c67ad89e24564c4a90b3f80825df579, type: 3}
-      propertyPath: towerSWList.Array.data[0].prefab
-      value: 
-      objectReference: {fileID: 8642980832630307034, guid: 9fea3a8f1572ffb4c9889e45d8e08d59, type: 3}
-    - target: {fileID: 6224695799777292055, guid: 8c67ad89e24564c4a90b3f80825df579, type: 3}
-      propertyPath: towerSWList.Array.data[0].visual
-      value: 
-      objectReference: {fileID: 4539338874200799932, guid: e7614204d50b83748815927e1cf97892, type: 3}
-    - target: {fileID: 6224695799777292055, guid: 8c67ad89e24564c4a90b3f80825df579, type: 3}
       propertyPath: towerSelectionList.items.Array.size
       value: 1
       objectReference: {fileID: 0}
