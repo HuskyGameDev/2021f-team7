@@ -11,8 +11,3 @@ public interface IDamageable
 {
     void TakeDamage(int amount);
 }
-
-public interface IPlaceableByPlayer
-{
-    void DefinePlayer(Player player);
-}

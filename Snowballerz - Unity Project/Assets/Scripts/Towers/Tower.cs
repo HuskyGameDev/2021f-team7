@@ -9,7 +9,7 @@ enum HealthState
     AlmostDestroyed
 }
 
-public class Tower : GridObject, IDamageable, IPlaceableByPlayer
+public class Tower : GridObject, IDamageable
 {
     // Snowball that the tower shoots
     [ SerializeField ]
@@ -84,12 +84,7 @@ public class Tower : GridObject, IDamageable, IPlaceableByPlayer
 
     void IDamageable.TakeDamage( int amount )
     {
-        this.health = Mathf.Max( this.health - amount, 0 );
-
-        if ( this.health == 0 ) {
-            Debug.Log( "Tower destroyed!" );
-            GameObject.Destroy( this.gameObject );
-        }
+        Health -= amount;
     }
 
     public override void Interact( Player player )
@@ -97,13 +92,9 @@ public class Tower : GridObject, IDamageable, IPlaceableByPlayer
         Debug.Log( "Interact with tower: " + name );
     }
 
-    public void DefinePlayer( Player player )
-    {
-        // needs to know which player placed it for the direction
-    }
-
     void Die()
     {
-
+        // anything else
+        Destroy(gameObject);
     }
 }
