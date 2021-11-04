@@ -3,7 +3,8 @@ guid: 5b5f099c830303a4a887f30abd6aa16e
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - snowTile: {fileID: 5028856340645201941, guid: 00558b84ae437944e8aab7034726e2fd, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
