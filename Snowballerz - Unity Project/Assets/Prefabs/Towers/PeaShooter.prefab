@@ -214,7 +214,6 @@ MonoBehaviour:
   name: PeaShooter
   health: 100
   fireRate: 2
-  snowballCostToPlace: 6
   spawnPosOfSnowball: {fileID: 805913503}
   id: 0
 --- !u!61 &3266705080804863734

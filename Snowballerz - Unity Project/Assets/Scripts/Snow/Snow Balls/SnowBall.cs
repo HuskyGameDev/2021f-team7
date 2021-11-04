@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class SnowBall : MonoBehaviour
+public class SnowBall : MonoBehaviour
 {
     [SerializeField]
     float speed;
@@ -38,20 +38,17 @@ public abstract class SnowBall : MonoBehaviour
         wasShot = true;
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    protected void OnTriggerEnter2D(Collider2D collision)
     {
         IDamageable damageable = collision.GetComponent<IDamageable>();
         
         if (damageable != null)
         {
-            //damageable.TakeDamage(damage);
-            DoDamage(damageable);
-            // many things can happen when a snowball gets destroyed
+            damageable.TakeDamage(damage);
+
             // sound effect
             // partice effect
             Destroy(gameObject);
         }
     }
-
-    protected abstract void DoDamage(IDamageable obj);
 }
