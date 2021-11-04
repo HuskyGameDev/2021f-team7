@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SnowBall : MonoBehaviour
+public abstract class SnowBall : MonoBehaviour
 {
     [SerializeField]
     float speed;
@@ -12,18 +12,23 @@ public class SnowBall : MonoBehaviour
 
     Vector2 direction;
 
-    private Rigidbody2D rb;
+    Rigidbody2D rb;
 
-    private void Awake()
+    void Awake()
     {
-        this.rb = this.GetComponent<Rigidbody2D>();
+        rb = this.GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
+        Move();
+    }
+
+    void Move()
+    {
         if (wasShot == true)
         {
-            this.rb.position += direction * speed * Time.deltaTime;
+            rb.position += direction * speed * Time.deltaTime;
         }
     }
 
@@ -35,16 +40,18 @@ public class SnowBall : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        IDamageable damageable = collision.GetComponent< IDamageable >();
+        IDamageable damageable = collision.GetComponent<IDamageable>();
         
-        if ( damageable != null )
+        if (damageable != null)
         {
-            damageable.TakeDamage( damage );
-
+            //damageable.TakeDamage(damage);
+            DoDamage(damageable);
             // many things can happen when a snowball gets destroyed
             // sound effect
             // partice effect
-            Destroy( this.gameObject );
+            Destroy(gameObject);
         }
     }
+
+    protected abstract void DoDamage(IDamageable obj);
 }
