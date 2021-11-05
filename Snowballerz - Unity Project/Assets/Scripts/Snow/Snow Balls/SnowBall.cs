@@ -32,7 +32,7 @@ public class SnowBall : MonoBehaviour
         }
     }
 
-    public void Shoot(Vector2 directionToShoot)
+    public void Shoot( Vector2 directionToShoot )
     {
         direction = directionToShoot;
         wasShot = true;

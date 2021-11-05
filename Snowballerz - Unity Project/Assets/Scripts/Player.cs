@@ -10,7 +10,7 @@ public class Player : MonoBehaviour, IDamageable
 
     // Public / Exposed fields. //
     [ SerializeField ]
-    PlayerInputWrapper.Players player;
+    Players player;
 
     [ SerializeField ]
     float movementSpeed = 7.0f;
@@ -107,12 +107,29 @@ public class Player : MonoBehaviour, IDamageable
 
                         if (SnowCount >= itemTuple.Item2)
                         {
-                            var go = GameObject.Instantiate(itemTuple.Item1);
+                            var gameObj = GameObject.Instantiate(itemTuple.Item1);
+                            var gridObj = gameObj.GetComponent<GridObject>();
                             // Assign the tower to the player collision layer that we're on.
-                            go.gameObject.layer = this.gameObject.layer;
-                            selected.selectedSquare.Place(go.GetComponent<GridObject>());
+                            gameObj.gameObject.layer = this.gameObject.layer;
+
+                            foreach ( Transform c in gameObj.GetComponentsInChildren<Transform>() ) 
+                            {
+                                c.gameObject.layer = this.gameObject.layer;
+                            }
+
+                            // If tower is IDirectionable, give it a direction.
+                            if ( gridObj is IDirectionable ) 
+                            {
+                                // TODO: Make this not hard-coded if theres even another map made.
+                                Vector2 targetDir =
+                                    this.player == Players.Player_1 ? Vector2.right : Vector2.left;
+
+                                ( (IDirectionable)gridObj ).SetDirection( targetDir );
+                            }
+                            
+                            selected.selectedSquare.Place( gridObj );
                             SnowCount -= itemTuple.Item2;
-                            go.GetComponent<Tower>().Placed = true;
+                            gameObj.GetComponent<Tower>().Placed = true;
                         }
                     }
                     else 
