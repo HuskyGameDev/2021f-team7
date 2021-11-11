@@ -163,7 +163,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: flakesNeeded
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: initialObject
@@ -298,7 +298,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: flakesNeeded
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: initialObject
@@ -413,7 +413,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: flakesNeeded
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: initialObject
@@ -548,10 +548,6 @@ MonoBehaviour:
   line2: {fileID: 39878169}
   line3: {fileID: 962900631}
   line4: {fileID: 1736761573}
-  firstFall: 1000
-  firstPass: 2000
-  secondFall: 2500
-  secondPass: 3500
 --- !u!199 &148743219
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -5414,7 +5410,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: flakesNeeded
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: initialObject
@@ -5626,7 +5622,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: flakesNeeded
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: initialObject
@@ -5707,7 +5703,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: flakesNeeded
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: initialObject
@@ -6148,7 +6144,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: flakesNeeded
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: initialObject
@@ -6370,7 +6366,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: flakesNeeded
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: initialObject
@@ -6530,7 +6526,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: flakesNeeded
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: initialObject
@@ -7094,7 +7090,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: flakesNeeded
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: initialObject
@@ -7307,7 +7303,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: flakesNeeded
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: initialObject
@@ -7388,7 +7384,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: flakesNeeded
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: initialObject
@@ -7469,7 +7465,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: flakesNeeded
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: initialObject
@@ -7660,7 +7656,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: flakesNeeded
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: initialObject
@@ -7741,7 +7737,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: flakesNeeded
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: initialObject
@@ -7822,7 +7818,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: flakesNeeded
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: initialObject
@@ -7973,10 +7969,6 @@ MonoBehaviour:
   line2: {fileID: 39878169}
   line3: {fileID: 962900631}
   line4: {fileID: 1736761573}
-  firstFall: 1000
-  firstPass: 2000
-  secondFall: 2500
-  secondPass: 3500
 --- !u!199 &1171843618
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -12792,7 +12784,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: flakesNeeded
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: initialObject
@@ -12873,7 +12865,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: flakesNeeded
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: initialObject
@@ -12954,7 +12946,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: flakesNeeded
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: initialObject
@@ -13035,7 +13027,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: flakesNeeded
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: initialObject
@@ -13323,7 +13315,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: flakesNeeded
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: initialObject
@@ -13540,10 +13532,6 @@ MonoBehaviour:
   line2: {fileID: 39878169}
   line3: {fileID: 962900631}
   line4: {fileID: 1736761573}
-  firstFall: 1000
-  firstPass: 2000
-  secondFall: 2500
-  secondPass: 3500
 --- !u!199 &1455642423
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -18390,7 +18378,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: flakesNeeded
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: initialObject
@@ -18545,7 +18533,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: flakesNeeded
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: initialObject
@@ -18657,7 +18645,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: flakesNeeded
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: initialObject
@@ -18870,7 +18858,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: flakesNeeded
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: initialObject
@@ -19013,7 +19001,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: flakesNeeded
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: initialObject
@@ -19188,7 +19176,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: flakesNeeded
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: initialObject
@@ -19269,7 +19257,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: flakesNeeded
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: initialObject
@@ -19392,7 +19380,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: flakesNeeded
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: initialObject
@@ -19493,7 +19481,7 @@ PrefabInstance:
       objectReference: {fileID: 7776506945559831216, guid: 9fea3a8f1572ffb4c9889e45d8e08d59, type: 3}
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: flakesNeeded
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: initialObject
@@ -19675,7 +19663,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: flakesNeeded
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: initialObject
@@ -19756,6 +19744,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2078917197}
+  - component: {fileID: 2078917198}
   m_Layer: 0
   m_Name: Snowfall Particle Systems
   m_TagString: Untagged
@@ -19780,6 +19769,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2078917198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2078917196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1c14a9eb4ce2c54d96044b3b5e507b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstFallTime: 1000
+  firstPassTime: 2000
+  secondFallTime: 1500
+  secondPassTime: 2500
+  line1: {fileID: 469365555}
+  line2: {fileID: 39878169}
+  line3: {fileID: 962900631}
+  line4: {fileID: 1736761573}
 --- !u!1 &2122366575 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4512490665860279437, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
@@ -19886,7 +19895,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: flakesNeeded
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4512490665860279435, guid: 9e8be277d86d8bf48a8bc57fd9173347, type: 3}
       propertyPath: initialObject
