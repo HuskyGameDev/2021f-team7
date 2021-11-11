@@ -11,11 +11,6 @@ public class SnowfallControl : MonoBehaviour
     [SerializeField]
     private GameObject line1, line2, line3, line4;
 
-    // Number of frames at which each of actions occur
-    // Falls are when flakes shrink towards tiles, passes are when flakes ignore tiles
-    [SerializeField]
-    private int firstFallTime, firstPassTime, secondFallTime, secondPassTime;
-
     ParticleSystem ps;
 
     /* Set of tiles for snowfall to stop at
@@ -26,50 +21,23 @@ public class SnowfallControl : MonoBehaviour
      * */
     HashSet<int> deathTiles = new HashSet<int>();
 
-    int frames = 0;
-    int firstDeathTile = 1;
-    int secondDeathTile = 31;
-
     // Start is called before the first frame update
     void Start()
     {
         ps = GetComponent<ParticleSystem>();  // Grab the particle system this script is attached to
-
-        if(firstFallTime >= firstPassTime || secondFallTime >= secondPassTime)
-        {
-            Debug.Log("Warning: Improper input for snowfall stop and through values, snowfall will not work correctly");
-        }
     }
 
-    void Update()
+    /*void Update()
     {
-        // Update frame count and tell snow to stop or go through tiles if frame count matches given values
-        frames++;
-        if (frames == firstFallTime)
-        {
-            firstDeathTile = (int)(Random.value * 31) + 1;  // Random value between 1 and 31
-            stopHere(firstDeathTile);
-        }
-        else if (frames == firstPassTime)
-        {
-            goThroughHere(firstDeathTile);
-        }
-        else if (frames == secondFallTime)
-        {
-            secondDeathTile = (int)(Random.value * 31) + 1;
-            stopHere(secondDeathTile);
-        }
-        else if (frames == secondPassTime)
-        {
-            goThroughHere(secondDeathTile);
-            frames = 0;
-        }
-    }
+        
+    }*/
 
     // Set a tile number for particles to stop at
     public void stopHere(int tileNum)
     {
         deathTiles.Add(tileNum);
+
+        
     }
 
     // Set a tile number for particles to go through (going through tiles is default - only call this on tiles that were passed to stopHere)
@@ -82,7 +50,7 @@ public class SnowfallControl : MonoBehaviour
         }
     }
 
-    // Place down snow tile at given tile number
+    // Place down snow tile at given tile number -- UNUSED IN CURRENT BUILD --
     /* 
      * Options for when to call this function: 
      *      on call to goThroughHere()
@@ -195,7 +163,7 @@ public class SnowfallControl : MonoBehaviour
                 // Iterate through each tile on which particles should die
                 foreach (int tile in deathTiles)
                 {
-                    if (insideData.GetCollider(i, 0) == ps.trigger.GetCollider(tile) || insideData.GetCollider(i, 1) == ps.trigger.GetCollider(tile))
+                    if (insideData.GetCollider(i, 0) == ps.trigger.GetCollider(tile) || insideData.GetCollider(i, 1) == ps.trigger.GetCollider(tile) || insideData.GetCollider(i, 2) == ps.trigger.GetCollider(tile))
                     {
                         p.startSize = p.startSize / 1.05F;
                         if (p.startSize < 0.4F)
