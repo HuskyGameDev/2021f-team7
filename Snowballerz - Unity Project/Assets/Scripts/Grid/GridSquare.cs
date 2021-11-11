@@ -22,7 +22,7 @@ public class GridSquare : MonoBehaviour, IInteractable
     private void Start()
     {
         // If a prefab for the initial grid object is defined.
-        if ( this.initialObject != null ) 
+        if (this.initialObject != null)
         {
             //var go = GameObject.Instantiate( initialObject );
 
@@ -46,7 +46,7 @@ public class GridSquare : MonoBehaviour, IInteractable
         return false;
     }
 
-    public void Place( GridObject gridObject )
+    public void Place(GridObject gridObject)
     {
         gridObject = Instantiate(gridObject);
 
@@ -54,7 +54,7 @@ public class GridSquare : MonoBehaviour, IInteractable
 
         gridObject.transform.parent = this.transform;
         // Place in the middle & in front of the the grid square.
-        gridObject.transform.localPosition = new Vector3( 0, 0, -1 );
+        gridObject.transform.localPosition = new Vector3(0, 0, -1);
     }
 
     //Returns the visual bounds in world space of the grid square.
