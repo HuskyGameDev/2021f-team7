@@ -6,7 +6,7 @@ public class SnowBall : MonoBehaviour
     float speed;
 
     [SerializeField]
-    int damage;
+    protected int damage;
 
     bool wasShot;
 
@@ -38,17 +38,23 @@ public class SnowBall : MonoBehaviour
         wasShot = true;
     }
 
-    protected void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         IDamageable damageable = collision.GetComponent<IDamageable>();
         
         if (damageable != null)
         {
-            damageable.TakeDamage(damage);
+            DoDamage(damageable);
 
             // sound effect
             // partice effect
             Destroy(gameObject);
         }
+    }
+
+    // this function will be overwritten for each special snowball
+    protected virtual void DoDamage(IDamageable damageable)
+    {
+        damageable.TakeDamage(damage);
     }
 }

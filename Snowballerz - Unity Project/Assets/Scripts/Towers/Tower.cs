@@ -19,6 +19,8 @@ public class Tower : GridObject, IDamageable, IDirectionable
     [ SerializeField ]
     new string name;
 
+    public SpriteRenderer sprite;
+
     // Its only set to true temporarly. Later we need to know which direction player 1 and 2 is facing
     //bool facingRight = true;
 
@@ -62,7 +64,7 @@ public class Tower : GridObject, IDamageable, IDirectionable
 
     Dictionary< HealthState, Sprite > towerSprites = new Dictionary< HealthState, Sprite >();
 
-    bool placed = false;
+    bool placed;
 
     public bool Placed
     {
@@ -74,7 +76,12 @@ public class Tower : GridObject, IDamageable, IDirectionable
         }
     }
 
-    public int id;
+    public GameObject Object
+    {
+        get { return this.gameObject; }
+    }
+
+    bool isBurned;
 
     void Start()
     {
@@ -93,7 +100,7 @@ public class Tower : GridObject, IDamageable, IDirectionable
         }
     }
 
-    void IDamageable.TakeDamage( int amount )
+    public void TakeDamage( int amount )
     {
         Health -= amount;
     }
