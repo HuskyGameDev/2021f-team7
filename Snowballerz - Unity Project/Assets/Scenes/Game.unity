@@ -2723,6 +2723,22 @@ PrefabInstance:
       propertyPath: player
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6224695799777292055, guid: 8c67ad89e24564c4a90b3f80825df579, type: 3}
+      propertyPath: towerSWList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6224695799777292055, guid: 8c67ad89e24564c4a90b3f80825df579, type: 3}
+      propertyPath: towerSWList.Array.data[1].cost
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6224695799777292055, guid: 8c67ad89e24564c4a90b3f80825df579, type: 3}
+      propertyPath: towerSWList.Array.data[1].prefab
+      value: 
+      objectReference: {fileID: 6012160165467466500, guid: a5e1af35353cd05418713ac7d7e2b379, type: 3}
+    - target: {fileID: 6224695799777292055, guid: 8c67ad89e24564c4a90b3f80825df579, type: 3}
+      propertyPath: towerSWList.Array.data[1].visual
+      value: 
+      objectReference: {fileID: 4210339224900193206, guid: 1c1c0c865f87aaa4da56accdb6bd1806, type: 3}
     - target: {fileID: 6224695799777292136, guid: 8c67ad89e24564c4a90b3f80825df579, type: 3}
       propertyPath: player
       value: 1
@@ -4205,6 +4221,22 @@ PrefabInstance:
       propertyPath: player
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6224695799777292055, guid: 8c67ad89e24564c4a90b3f80825df579, type: 3}
+      propertyPath: towerSWList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6224695799777292055, guid: 8c67ad89e24564c4a90b3f80825df579, type: 3}
+      propertyPath: towerSWList.Array.data[1].cost
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6224695799777292055, guid: 8c67ad89e24564c4a90b3f80825df579, type: 3}
+      propertyPath: towerSWList.Array.data[1].prefab
+      value: 
+      objectReference: {fileID: 6012160165467466500, guid: a5e1af35353cd05418713ac7d7e2b379, type: 3}
+    - target: {fileID: 6224695799777292055, guid: 8c67ad89e24564c4a90b3f80825df579, type: 3}
+      propertyPath: towerSWList.Array.data[1].visual
+      value: 
+      objectReference: {fileID: 4210339224900193206, guid: 1c1c0c865f87aaa4da56accdb6bd1806, type: 3}
     - target: {fileID: 6224695799777292055, guid: 8c67ad89e24564c4a90b3f80825df579, type: 3}
       propertyPath: towerSelectionList.items.Array.size
       value: 1

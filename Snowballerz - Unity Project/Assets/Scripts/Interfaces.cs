@@ -12,6 +12,7 @@ public interface IInteractable
 public interface IDamageable
 {
     void TakeDamage( int amount );
+    GameObject Object { get; }
 }
 
 public interface IDirectionable

@@ -7,18 +7,22 @@ public class FlamingSnowball : SnowBall
     [SerializeField]
     int burnTime;
 
-    //protected override void DoDamage(IDamageable obj)
-    //{
-    //    throw new System.NotImplementedException();
-    //}
+    [SerializeField]
+    int burnDamage;
 
-    IEnumerator BurnEnemy(IDamageable obj)
+    protected override void DoDamage(IDamageable damageable)
     {
-        while(true)
-        {
-            // burn obj logic
+        damageable.TakeDamage(damage);
 
-            yield return new WaitForSeconds(burnTime);
+        GameObject obj = damageable.Object;
+        Burnable burnable = obj.GetComponent<Burnable>();
+
+        if (burnable != null)
+        {
+            if (burnable.IsBurned == false)
+            {
+                burnable.IsBurned = true;
+            }
         }
     }
 }

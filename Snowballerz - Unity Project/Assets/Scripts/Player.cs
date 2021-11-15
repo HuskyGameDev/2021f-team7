@@ -42,6 +42,11 @@ public class Player : MonoBehaviour, IDamageable
         }
     }
 
+    public GameObject Object
+    {
+        get { return this.gameObject; }
+    }
+
     // Private / Unexposed fields. //
     private Vector2 movementDirection = Vector2.zero;
 
@@ -259,6 +264,11 @@ public class Player : MonoBehaviour, IDamageable
     }
 
     public void TakeDamage(int amount)
+    {
+        throw new NotImplementedException();
+    }
+
+    void IDamageable.TakeDamage(int amount)
     {
         throw new NotImplementedException();
     }
