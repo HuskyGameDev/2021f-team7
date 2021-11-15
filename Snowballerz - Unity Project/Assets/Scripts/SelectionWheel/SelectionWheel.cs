@@ -346,18 +346,20 @@ public class SelectionWheel : MonoBehaviour
     }
 
     /// <summary>
-    /// Returns the ID of the selected top item,
-    /// and if the top or bottom option is currently selected.
+    /// Returns a tuple representing the current selection, composed of:
+    /// - The currently selected vertical option.
+    /// - The selection value of the currently selected item.
+    /// - The ItemI of the currently selected item.
     /// </summary>
     /// <returns>
     /// </returns>
-    public ( VerticalOptions, int ) GetSelected()
+    public ( VerticalOptions, object, int ) GetSelected()
     {
         Assert.IsNotNull( this.activeSelection );
 
         var sel = this.activeSelection;
 
-        return ( sel.verticalSelection, sel.Config.List.items[sel.ItemsI].ID );
+        return ( sel.verticalSelection, sel.Config.List.items[sel.ItemsI].Value, sel.ItemsI );
     }
 
     private void setVisible( bool visible )

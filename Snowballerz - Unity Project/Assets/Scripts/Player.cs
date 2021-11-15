@@ -1,13 +1,17 @@
 using UnityEngine;
 using System;
 using System.Collections.Generic;
+using static PlayerInputWrapper;
 
 [ RequireComponent( typeof( PlayerGridSelection ) ) ]
 public class Player : MonoBehaviour, IDamageable
 {
-    public static event Action<int> OnSnowCountChange;
+    public event Action<int> OnSnowCountChange;
 
     // Public / Exposed fields. //
+    [ SerializeField ]
+    Players player;
+
     [ SerializeField ]
     float movementSpeed = 7.0f;
 
@@ -18,16 +22,10 @@ public class Player : MonoBehaviour, IDamageable
     SelectionWheel selectionWheel;
 
     [ SerializeField ]
-    SW_List testList;
+    BuildableSelection[] towerSWList;
 
-    [SerializeField]
+    [ SerializeField ]
     GameObject destroyItem;
-
-    [SerializeField]
-    PeaShooter peaShooter;
-
-    [SerializeField]
-    List<Tower> towers = new List<Tower>();
 
     public int SnowCount
     {
@@ -42,6 +40,11 @@ public class Player : MonoBehaviour, IDamageable
                 OnSnowCountChange(snowCount);
             }
         }
+    }
+
+    public GameObject Object
+    {
+        get { return this.gameObject; }
     }
 
     // Private / Unexposed fields. //
@@ -70,22 +73,27 @@ public class Player : MonoBehaviour, IDamageable
 
     private void Start()
     {
-        SnowCount = 0;
+        this.SnowCount = 0;
 
         var input = GlobalInputActions.Instance;
 
-        input.Player_1.Move.performed += ctx => 
+        var moveIA = GetInputAction( input, Actions.Move, this.player );
+        var actionIA = GetInputAction( input, Actions.Action, this.player );
+        var selectIA = GetInputAction( input, Actions.Select, this.player );
+        var selectDirectionIA = GetInputAction( input, Actions.SelectDirection, this.player );
+
+        moveIA.performed += ctx => 
         {
             movementDirection = ctx.ReadValue<Vector2>();
         };
 
-        input.Player_1.Move.canceled += ctx =>
+        moveIA.canceled += ctx =>
         {
             movementDirection = Vector2.zero;
         };
 
         // R button
-        input.Player_1.Action.performed += ctx => 
+        actionIA.performed += ctx => 
         {
             var selected = this.playerSelection.GetSelected();
 
@@ -98,15 +106,35 @@ public class Player : MonoBehaviour, IDamageable
                 if ( selected != null )
                 {
                     // if the grid object on the selected square was empty, we can place a tower
-                    if (!selected.selectedSquare.HasCurrentObject())
+                    if ( !selected.selectedSquare.HasCurrentObject() )
                     {
-                        foreach (var tower in towers)
+                        var itemTuple = ((GameObject, int))seld.Item2;
+
+                        if (SnowCount >= itemTuple.Item2)
                         {
-                            if (tower.id == seld.Item2)
+                            var gameObj = GameObject.Instantiate(itemTuple.Item1);
+                            var gridObj = gameObj.GetComponent<GridObject>();
+                            // Assign the tower to the player collision layer that we're on.
+                            gameObj.gameObject.layer = this.gameObject.layer;
+
+                            foreach ( Transform c in gameObj.GetComponentsInChildren<Transform>() ) 
                             {
-                                selected.selectedSquare.Place(tower);
-                                tower.placed = true;
+                                c.gameObject.layer = this.gameObject.layer;
                             }
+
+                            // If tower is IDirectionable, give it a direction.
+                            if ( gridObj is IDirectionable ) 
+                            {
+                                // TODO: Make this not hard-coded if theres even another map made.
+                                Vector2 targetDir =
+                                    this.player == Players.Player_1 ? Vector2.right : Vector2.left;
+
+                                ( (IDirectionable)gridObj ).SetDirection( targetDir );
+                            }
+                            
+                            selected.selectedSquare.Place( gridObj );
+                            SnowCount -= itemTuple.Item2;
+                            gameObj.GetComponent<Tower>().Placed = true;
                         }
                     }
                     else 
@@ -116,7 +144,7 @@ public class Player : MonoBehaviour, IDamageable
                 }
 
                 this.selectionWheel.HideWheel();
-                this.lastSelectedItem = seld.Item2;
+                this.lastSelectedItem = seld.Item3;
                 this.selectingFromWheel = false;
                 return;
             }
@@ -129,12 +157,26 @@ public class Player : MonoBehaviour, IDamageable
         };
 
         // T button
-        input.Player_1.Select.performed += ctx =>
+        selectIA.performed += ctx =>
         {
             this.selectingFromWheel = true;
+
+            // Create selection list for wheel.
+            List<SW_Item> items = new List<SW_Item>();
+            
+            foreach ( var sel in this.towerSWList ) 
+            {
+                SW_Item item = new SW_Item();
+
+                item.Visual = sel.visual;
+                // Assign the SW_Item's value to be a tuple of the tower's prefab & cost.
+                item.Value = (sel.prefab, sel.cost);
+                items.Add(item);
+            }
+
             this.selectionWheel.ShowWheel( 
                 new SelectionWheel.SelectionConfig (
-                    this.testList,
+                    new SW_List( items.ToArray() ),
                     this.lastSelectedItem,
                     true,
                     this.destroyItem
@@ -142,18 +184,18 @@ public class Player : MonoBehaviour, IDamageable
             );
         };
 
-        input.Player_1.Select.canceled += ctx =>
+        selectIA.canceled += ctx =>
         {
             // If we've already stopped selecting from the wheel, return;
             if (!this.selectingFromWheel) return;
 
             var seld = this.selectionWheel.GetSelected();
-            this.lastSelectedItem = seld.Item2;
+            this.lastSelectedItem = seld.Item3;
             this.selectingFromWheel = false;
             this.selectionWheel.HideWheel();
         };
 
-        input.Player_1.SelectDirection.performed += ctx =>
+        selectDirectionIA.performed += ctx =>
         {
             var vec = ctx.ReadValue<Vector2>();
 
@@ -222,6 +264,11 @@ public class Player : MonoBehaviour, IDamageable
     }
 
     public void TakeDamage(int amount)
+    {
+        throw new NotImplementedException();
+    }
+
+    void IDamageable.TakeDamage(int amount)
     {
         throw new NotImplementedException();
     }

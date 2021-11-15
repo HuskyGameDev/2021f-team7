@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class GridSquare : MonoBehaviour, IInteractable
 {
+    public static event System.Action PlaceTower;
+
     private GridObject currentObject;
 
     [Tooltip("A prefab to create and place on this tile during Start(). If none, this tile will start empty.")]
@@ -20,9 +22,8 @@ public class GridSquare : MonoBehaviour, IInteractable
         // If a prefab for the initial grid object is defined.
         if ( this.initialObject != null ) 
         {
-            //var go = GameObject.Instantiate( initialObject );
-
-            Place(initialObject);
+            var go = GameObject.Instantiate( initialObject );
+            Place( go );
         }
     }
 
@@ -42,9 +43,19 @@ public class GridSquare : MonoBehaviour, IInteractable
         return false;
     }
 
+    /// <summary>
+    /// Places a pre-instantiated gameobject with a GridObject components onto this GridSquare.
+    /// </summary>
+    /// <param name="gridObject"></param>
     public void Place( GridObject gridObject )
     {
-        gridObject = Instantiate(gridObject);
+        // gridObject = Instantiate(gridObject);
+
+        // The tower needs to know which player placed it
+        //if (gridObject.GetComponent<IPlaceableByPlayer>() != null)
+        //{
+        //    gridObject.GetComponent<IPlaceableByPlayer>().Place();
+        //}
 
         this.currentObject = gridObject;
 

@@ -1,13 +1,21 @@
 
 // every obj in the game that the player can interact with will be tagged with this interface
-interface IInteractable
+using UnityEngine;
+
+public interface IInteractable
 {
     //Called when a player interacts with an IInteractable. The player interacting with it is passed as a parameter.
-    bool Interact(Player player);
+    bool Interact( Player player );
 }
 
 // every obj in the game that is able to be hit by a snowball will be tagged with this interface
-interface IDamageable
+public interface IDamageable
 {
-    void TakeDamage(int amount);
+    void TakeDamage( int amount );
+    GameObject Object { get; }
+}
+
+public interface IDirectionable
+{
+    void SetDirection( Vector2 direction );
 }
