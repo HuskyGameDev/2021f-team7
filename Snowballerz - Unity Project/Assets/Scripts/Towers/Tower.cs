@@ -35,7 +35,7 @@ public class Tower : GridObject, IDamageable, IDirectionable
 
         set
         {
-            if (health <= 0)
+            if (value <= 0)
             {
                 health = 0;
                 Die();
