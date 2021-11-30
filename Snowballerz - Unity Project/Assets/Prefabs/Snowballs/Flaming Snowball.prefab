@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4705018079949236087}
   - component: {fileID: 5400936389647580192}
   - component: {fileID: 5833964814342281100}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Flaming Snowball
   m_TagString: Snowball
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   m_Component:
   - component: {fileID: 241432934490213390}
   - component: {fileID: 7913425641027334373}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

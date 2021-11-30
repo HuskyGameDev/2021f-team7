@@ -39,9 +39,4 @@ public class Burnable : MonoBehaviour
             
         }
     }
-
-    void ChangeColor()
-    {
-        tower.sprite.color = Color.red;
-    }
 }
