@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.Assertions;
+using System.Collections.Generic;
+using UnityEditor;
 
 public class Tower : GridObject, IDamageable, IDirectionable
 {
@@ -11,7 +13,7 @@ public class Tower : GridObject, IDamageable, IDirectionable
     [ SerializeField ]
     new string name;
 
-    public SpriteRenderer sprite;
+    public List<SpriteRenderer> srs = new List<SpriteRenderer>();
 
     Vector2 targetDirection = Vector2.left;
 
@@ -24,14 +26,12 @@ public class Tower : GridObject, IDamageable, IDirectionable
 
         set
         {
-            if (health <= 0)
+            health = value;
+
+            if ( health <= 0 )
             {
                 health = 0;
                 Die();
-            }
-            else
-            {
-                health = value;
             }
         }
     }
@@ -69,6 +69,11 @@ public class Tower : GridObject, IDamageable, IDirectionable
     }
 
     bool isBurned;
+
+    void Awake()
+    {
+        this.srs.AddRange( this.GetComponentsInChildren<SpriteRenderer>() );
+    }
 
     void Start()
     {
@@ -113,7 +118,7 @@ public class Tower : GridObject, IDamageable, IDirectionable
     /// Assumes that the input is a non-zero, normalized value.
     /// </summary>
     /// <param name="direction"></param>
-    public void SetDirection( Vector2 direction )
+    public void SetDirection(Vector2 direction)
     {
         this.targetDirection = direction;
 
@@ -140,5 +145,10 @@ public class Tower : GridObject, IDamageable, IDirectionable
         }
 
         this.pivot.localScale = scale;
+    }
+
+    private void OnDrawGizmos()
+    {
+        DebugUtils.DrawString( this.health.ToString(), transform.position, -10, 0, Color.red );
     }
 }

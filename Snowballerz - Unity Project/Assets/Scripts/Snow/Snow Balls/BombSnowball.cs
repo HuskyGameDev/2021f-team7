@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class BombSnowball : SnowBall
@@ -23,30 +24,27 @@ public class BombSnowball : SnowBall
 
         if (damageable != null)
         {
-            int mask = LayerMask.GetMask("Snowball");
+            var hitsUp = Physics2D.RaycastAll(damageable.Object.transform.position, Vector2.up, 2);
+            var hitsDown = Physics2D.RaycastAll(damageable.Object.transform.position, Vector2.down, 2);
 
-            RaycastHit2D hit1 = Physics2D.Raycast(transform.position, Vector2.up, 2, mask , -2, 2);
-            RaycastHit2D hit2 = Physics2D.Raycast(transform.position, Vector2.down, 2, mask, -2, 2);
-
-            if (hit1.collider != null)
+            // Iterate through all raycast hits, both up and down.
+            foreach (var rc in hitsUp.Concat(hitsDown))
             {
-                if (hit1.collider.gameObject.GetComponent<IDamageable>() != null)
+                if (rc.collider != null)
                 {
-                    towersHitByBomb.Add(hit1.collider.gameObject.GetComponent<IDamageable>());
+                    var damCom = rc.collider.gameObject.GetComponent<IDamageable>();
+
+                    if (damCom != null)
+                        towersHitByBomb.Add(damCom);
                 }
             }
 
-            //if (hit2.collider.gameObject.GetComponent<IDamageable>() != null)
-            //{
-            //    towersHitByBomb.Add(hit2.collider.gameObject.GetComponent<IDamageable>());
-            //}
+            towersHitByBomb.Add(damageable);
 
-            //towersHitByBomb.Add(damageable);
-
-            //foreach (var tower in towersHitByBomb)
-            //{
-            //    DoDamage(tower);
-            //}
+            foreach (var tower in towersHitByBomb)
+            {
+                DoDamage(tower);
+            }
 
             print(towersHitByBomb.Count);
 
