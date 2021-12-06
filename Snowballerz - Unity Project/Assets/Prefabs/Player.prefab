@@ -172,6 +172,9 @@ MonoBehaviour:
   - visual: {fileID: 4539338874200799932, guid: e7614204d50b83748815927e1cf97892, type: 3}
     prefab: {fileID: 8642980832630307034, guid: 9fea3a8f1572ffb4c9889e45d8e08d59, type: 3}
     cost: 5
+  - visual: {fileID: 7008696732378908089, guid: 69c4fbbf760184f41b1cb4813a01f60b, type: 3}
+    prefab: {fileID: 3813387202841638918, guid: 004abdef5ca098e4caa6a35f72d16f6e, type: 3}
+    cost: 10
   destroyItem: {fileID: 9016153037212181022, guid: d2d34e9f7d45c3b49ba0e67118623482, type: 3}
 --- !u!114 &6224695799777292136
 MonoBehaviour:
