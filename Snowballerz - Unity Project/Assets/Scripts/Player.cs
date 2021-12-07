@@ -131,7 +131,7 @@ public class Player : MonoBehaviour, IDamageable
 
                                 ( (IDirectionable)gridObj ).SetDirection( targetDir );
                             }
-                            
+
                             selected.selectedSquare.Place( gridObj );
                             SnowCount -= itemTuple.Item2;
                             gameObj.GetComponent<Tower>().Placed = true;

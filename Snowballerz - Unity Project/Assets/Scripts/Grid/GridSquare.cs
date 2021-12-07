@@ -2,7 +2,11 @@ using UnityEngine;
 
 public class GridSquare : MonoBehaviour, IInteractable
 {
+    public enum GSState { Placeable, Unplaceable };
+    
     public static event System.Action PlaceTower;
+
+    public GSState State { get; set; } = GSState.Placeable;
 
     private GridObject currentObject;
 
@@ -45,23 +49,34 @@ public class GridSquare : MonoBehaviour, IInteractable
 
     /// <summary>
     /// Places a pre-instantiated gameobject with a GridObject components onto this GridSquare.
+    /// 
+    /// Returns whether the GridObject was sucessfully placed on the GridSquare.s
     /// </summary>
     /// <param name="gridObject"></param>
-    public void Place( GridObject gridObject )
+    public bool Place( GridObject gridObject )
     {
-        // gridObject = Instantiate(gridObject);
-
-        // The tower needs to know which player placed it
-        //if (gridObject.GetComponent<IPlaceableByPlayer>() != null)
-        //{
-        //    gridObject.GetComponent<IPlaceableByPlayer>().Place();
-        //}
+        if ( this.State != GSState.Placeable )
+            return false;
 
         this.currentObject = gridObject;
 
         gridObject.transform.parent = this.transform;
         // Place in the middle & in front of the the grid square.
         gridObject.transform.localPosition = new Vector3( 0, 0, -1 );
+
+        return true;
+    }
+
+    public GridObject RemoveGridObject()
+    {
+        var gridObj = this.currentObject;
+
+        if ( gridObj == null )
+            return null;
+
+        this.currentObject = null;
+
+        return gridObj;
     }
 
     //Returns the visual bounds in world space of the grid square.
