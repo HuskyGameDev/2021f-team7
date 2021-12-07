@@ -9,9 +9,10 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Particle
   - Water
   - UI
+  - Tiles
   - Player
   - Player 1
   - Player 2

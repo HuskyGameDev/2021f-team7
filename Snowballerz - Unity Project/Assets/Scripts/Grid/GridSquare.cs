@@ -13,8 +13,12 @@ public class GridSquare : MonoBehaviour, IInteractable
     [Tooltip("A prefab to create and place on this tile during Start(). If none, this tile will start empty.")]
     [SerializeField]
     private GridObject initialObject;
+    [SerializeField]
+    private int flakesNeeded;
 
     private SpriteRenderer sprRend;
+
+    private int flakesFallen = 0;
 
     private void Awake()
     {
@@ -24,7 +28,7 @@ public class GridSquare : MonoBehaviour, IInteractable
     private void Start()
     {
         // If a prefab for the initial grid object is defined.
-        if ( this.initialObject != null ) 
+        if (this.initialObject != null)
         {
             var go = GameObject.Instantiate( initialObject );
             Place( go );
@@ -83,6 +87,25 @@ public class GridSquare : MonoBehaviour, IInteractable
     public Bounds GetBounds()
     {
         return sprRend.bounds;
+    }
+
+    // Called when a snowfall particle lands on the tile
+    public void addFlake()
+    {
+        flakesFallen++;
+        if (flakesFallen >= flakesNeeded && !HasCurrentObject() )
+        {
+            flakesFallen = 0;
+            if ( this.initialObject != null )
+            {
+                var go = GameObject.Instantiate( this.initialObject );
+                Place( go );
+            }
+            else
+            {
+                Debug.Log("GridSquare.cs: place snow tile in initialObject");
+            }
+        }
     }
 
 }
