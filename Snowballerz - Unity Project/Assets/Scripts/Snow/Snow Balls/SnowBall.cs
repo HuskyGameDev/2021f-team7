@@ -38,7 +38,8 @@ public class SnowBall : MonoBehaviour
         wasShot = true;
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    // Icicle needs to overwrite
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         IDamageable damageable = collision.GetComponent<IDamageable>();
         
