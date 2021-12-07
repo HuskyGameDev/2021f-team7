@@ -8,14 +8,7 @@ public class BombSnowball : SnowBall
 
     void Start()
     {
-        Physics2D.queriesStartInColliders = false; // the ray no longer detects it's own collider
-    }
-
-    protected override void Update()
-    {
-        base.Update();
-
-        Debug.DrawRay(transform.position, Vector2.up * 1.75f, Color.red);
+        Physics2D.queriesStartInColliders = false;
     }
 
     protected override void OnTriggerEnter2D(Collider2D collision)
@@ -43,17 +36,10 @@ public class BombSnowball : SnowBall
 
             foreach (var tower in towersHitByBomb)
             {
-                DoDamage(tower);
+                base.DoDamage(tower);
             }
-
-            print(towersHitByBomb.Count);
 
             Destroy(gameObject);
         }
-    }
-
-    protected override void DoDamage(IDamageable damageable)
-    {
-       
     }
 }

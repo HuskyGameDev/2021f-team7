@@ -1,11 +1,7 @@
-using System.Collections;
 using UnityEngine;
 
 public class FlamingSnowball : SnowBall
 {
-    [SerializeField]
-    int burnTime;
-
     [SerializeField]
     int burnDamage;
 
