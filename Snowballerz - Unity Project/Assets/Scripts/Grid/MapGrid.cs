@@ -12,6 +12,8 @@ public class MapGrid : MonoBehaviour
     {
         public GridSquare[] P1;
         public GridSquare[] P2;
+        public Flag P1Flag;
+        public Flag P2Flag;
     }
 
     [ SerializeField ]

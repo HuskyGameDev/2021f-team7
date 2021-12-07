@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,8 @@ public class Flag : MonoBehaviour, IDamageable
 {
 
     public Sprite[] flagStates;
+
+    public event Action OnFlagDeath;
 
     [ SerializeField ]
     private int health = 100;
@@ -21,6 +24,8 @@ public class Flag : MonoBehaviour, IDamageable
             if ( value <= 0 )
             {
                 this.health = 0;
+
+                this.Die();
             }
             else 
             {
@@ -41,5 +46,15 @@ public class Flag : MonoBehaviour, IDamageable
     public void TakeDamage(int amount)
     {
         this.Health -= amount;
+    }
+
+    public void Die( )
+    {
+        if ( this.OnFlagDeath != null )
+        {
+            this.OnFlagDeath.Invoke();
+        }
+
+        GameObject.Destroy( this.gameObject );
     }
 }

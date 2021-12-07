@@ -58,6 +58,10 @@ public class PlayerGridSelection : MonoBehaviour
         {
             foreach ( var sq in MapGrid.GetForPlayer( line, this.player ) )
             {
+                // Exclude squares that are not current placeable.
+                if ( sq.State == GridSquare.GSState.Unplaceable )
+                    continue;
+                
                 var sqDist = Vector2.Distance( playerCenter.position, sq.transform.position );
 
                 if (sqDist < nearestSquareDistance)
