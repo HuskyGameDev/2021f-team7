@@ -14,6 +14,9 @@ public class MatchController : MonoBehaviour
     [ SerializeField ]
     private Player p2;
 
+    [ SerializeField ]
+    private Animator gameAnnoucementAnim;
+
     private void Awake()
     {
         
@@ -51,8 +54,8 @@ public class MatchController : MonoBehaviour
         // Flip player 2 to face left.
         this.p2.GetComponent<Animator>().SetBool("FacingRight", false);
 
-        // TODO: REPLACE THIS WITH A PROPER ANIMATED START SEQUENCE
-        this.StartGame();
+        // Start the StartGame animation after 1 second.
+        StartCoroutine( StartGameAnimationDelay( 1f ) ) ;
     }
 
     public void StartGame()
@@ -67,5 +70,12 @@ public class MatchController : MonoBehaviour
         // Disable both players.
         this.p1.enabled = false;
         this.p2.enabled = false;
+    }
+
+    private IEnumerator StartGameAnimationDelay( float t )
+    {
+        yield return new WaitForSeconds( t );
+
+        this.gameAnnoucementAnim.SetTrigger( "StartGame" );
     }
 }

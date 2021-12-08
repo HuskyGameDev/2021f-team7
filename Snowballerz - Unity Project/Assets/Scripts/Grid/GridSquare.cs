@@ -40,7 +40,7 @@ public class GridSquare : MonoBehaviour, IInteractable
         return this.currentObject != null;
     }
 
-    public bool Interact(Player player)
+    public bool Interact( Player player )
     {
         if (this.currentObject != null)
         {
@@ -87,6 +87,15 @@ public class GridSquare : MonoBehaviour, IInteractable
     public Bounds GetBounds()
     {
         return sprRend.bounds;
+    }
+
+    /// <summary>
+    /// Get the ID tag of the current gridobject, if there is one.
+    /// </summary>
+    /// <returns></returns>
+    public string GetGOTag()
+    {
+        return this.currentObject != null ? this.currentObject.tag : null;
     }
 
     // Called when a snowfall particle lands on the tile

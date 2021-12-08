@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2617230456175816169}
   m_Layer: 0
   m_Name: SnowSquare
-  m_TagString: Untagged
+  m_TagString: SnowSquare
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afe726f6be04f4942a50fa8221103e0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  snowAmount: 0
 --- !u!61 &2617230456175816169
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -139,7 +139,20 @@ public class Player : MonoBehaviour, IDamageable
                     }
                     else 
                     {
-                        Debug.Log( "Couldn't build onto GridSquare: Has a GridObject on it!" );
+                        // If we're trying to destroy the object.
+                        if ( seld.Item1 == SelectionWheel.VerticalOptions.Bottom )
+                        {
+                            // If the selected object to destroy isn't a snowsquare
+                            if ( selected.selectedSquare.GetGOTag() != "SnowSquare" )
+                            {
+                                var removed = selected.selectedSquare.RemoveGridObject();
+                                GameObject.Destroy( removed.gameObject );
+                            }
+                        }
+                        else
+                        {
+                            Debug.Log("Couldn't build onto GridSquare: Has a GridObject on it!");
+                        }
                     }
                 }
 
