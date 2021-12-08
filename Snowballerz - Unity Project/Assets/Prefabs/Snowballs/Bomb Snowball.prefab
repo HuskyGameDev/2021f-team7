@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4487986514160320226}
   - component: {fileID: 6658751177461649315}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,8 +68,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -391356943
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: bd72c9c18adfb5b4fa74c4e2e62e6f52, type: 3}
   m_Color: {r: 0.16981131, g: 0.12375934, b: 0.0711285, a: 1}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 5054951222903229107}
   - component: {fileID: 4209481400481856171}
   - component: {fileID: -1813661493761246162}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: Bomb Snowball
   m_TagString: Snowball
   m_Icon: {fileID: 0}
@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 1129866687287865904}
   - component: {fileID: 782739530610381419}
   - component: {fileID: 2417203060962229123}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: BombCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}

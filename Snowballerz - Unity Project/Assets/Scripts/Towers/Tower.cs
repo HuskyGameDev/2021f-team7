@@ -149,6 +149,8 @@ public class Tower : GridObject, IDamageable, IDirectionable
 
     private void OnDrawGizmos()
     {
-        DebugUtils.DrawString( this.health.ToString(), transform.position, -10, 0, Color.red );
+        #if UNITY_EDITOR
+                DebugUtils.DrawString( this.health.ToString(), transform.position, -10, 0, Color.red );
+        #endif
     }
 }

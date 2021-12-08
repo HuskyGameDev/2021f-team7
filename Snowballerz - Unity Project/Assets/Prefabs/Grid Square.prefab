@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialObject: {fileID: 0}
+  flakesNeeded: 6
 --- !u!1 &7350862158133672470
 GameObject:
   m_ObjectHideFlags: 0

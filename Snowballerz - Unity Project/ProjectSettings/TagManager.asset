@@ -61,3 +61,6 @@ TagManager:
   - name: Players
     uniqueID: 1730702831
     locked: 0
+  - name: Snowballs
+    uniqueID: 3903610353
+    locked: 0
