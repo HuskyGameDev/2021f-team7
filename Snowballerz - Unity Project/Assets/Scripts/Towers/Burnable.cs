@@ -36,12 +36,6 @@ public class Burnable : MonoBehaviour
         {
             yield return new WaitForSeconds(burnTimer);
             tower.TakeDamage(burnDamage);
-            
         }
-    }
-
-    void ChangeColor()
-    {
-        tower.sprite.color = Color.red;
     }
 }

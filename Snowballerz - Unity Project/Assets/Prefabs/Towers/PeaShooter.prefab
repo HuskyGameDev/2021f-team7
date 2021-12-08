@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 805913503}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Snowball Spawn Pos
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3149033683036255830}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1871795883773896825}
   - component: {fileID: 8172304325587580226}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,7 +154,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1091816358785498183}
   - component: {fileID: 7472168740919184388}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Nozzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -239,7 +239,8 @@ GameObject:
   - component: {fileID: 7776506945559831216}
   - component: {fileID: 1465302087772488922}
   - component: {fileID: 6612003791025476509}
-  m_Layer: 0
+  - component: {fileID: 4207563467259814295}
+  m_Layer: 9
   m_Name: PeaShooter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -318,3 +319,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ff2e8e07375f9c4ea6f97db4d8e9b79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!50 &4207563467259814295
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8642980832630307034}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0

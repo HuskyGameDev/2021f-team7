@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 645925651120394296}
   - component: {fileID: 5871013393434013247}
   - component: {fileID: 3258312336250150439}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Regular Snowball
   m_TagString: Snowball
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3305fb11d75924f4c9917d264cb6a01e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 4
   damage: 5
 --- !u!58 &5871013393434013247
 CircleCollider2D:
@@ -95,7 +95,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2960073581937547886}
   - component: {fileID: 5419077348260834095}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

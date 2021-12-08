@@ -1,12 +1,7 @@
-using System.Collections;
 using UnityEngine;
 
 public class FlamingSnowball : SnowBall
 {
-    //Will burn tower over time, but can tower be burned twice?
-    [SerializeField]
-    int burnTime;
-
     [SerializeField]
     int burnDamage;
 
@@ -14,8 +9,7 @@ public class FlamingSnowball : SnowBall
     {
         damageable.TakeDamage(damage);
 
-        GameObject obj = damageable.Object;
-        Burnable burnable = obj.GetComponent<Burnable>();
+        Burnable burnable = damageable.Object.GetComponent<Burnable>();
 
         if (burnable != null)
         {

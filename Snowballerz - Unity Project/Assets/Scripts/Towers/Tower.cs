@@ -1,14 +1,8 @@
 using UnityEngine;
-using System.Collections.Generic;
 using System.Collections;
 using UnityEngine.Assertions;
-
-enum HealthState
-{
-    FullyHealed,
-    Damaged,
-    AlmostDestroyed
-}
+using System.Collections.Generic;
+using UnityEditor;
 
 public class Tower : GridObject, IDamageable, IDirectionable
 {
@@ -19,10 +13,7 @@ public class Tower : GridObject, IDamageable, IDirectionable
     [ SerializeField ]
     new string name;
 
-    public SpriteRenderer sprite;
-
-    // Its only set to true temporarly. Later we need to know which direction player 1 and 2 is facing
-    //bool facingRight = true;
+    public List<SpriteRenderer> srs = new List<SpriteRenderer>();
 
     Vector2 targetDirection = Vector2.left;
 
@@ -35,14 +26,12 @@ public class Tower : GridObject, IDamageable, IDirectionable
 
         set
         {
-            if (value <= 0)
+            health = value;
+
+            if ( health <= 0 )
             {
                 health = 0;
                 Die();
-            }
-            else
-            {
-                health = value;
             }
         }
     }
@@ -61,8 +50,6 @@ public class Tower : GridObject, IDamageable, IDirectionable
     // this will be different for every tower because they are not all the same width and height
     [ SerializeField ]
     Transform spawnPosOfSnowball;
-
-    Dictionary< HealthState, Sprite > towerSprites = new Dictionary< HealthState, Sprite >();
 
     bool placed;
 
@@ -83,6 +70,11 @@ public class Tower : GridObject, IDamageable, IDirectionable
 
     bool isBurned;
 
+    void Awake()
+    {
+        this.srs.AddRange( this.GetComponentsInChildren<SpriteRenderer>() );
+    }
+
     void Start()
     {
         StartCoroutine(ShootSnowBall());
@@ -95,6 +87,12 @@ public class Tower : GridObject, IDamageable, IDirectionable
             var sb = Instantiate(snowball, spawnPosOfSnowball.position, Quaternion.identity);
             // Set the snowball to be on the same player collision layer as us, as to not collide with any of our own towers.
             sb.gameObject.layer = this.gameObject.layer;
+
+            //if (sb.gameObject.GetComponent<BombSnowball>() != null)
+            //{
+            //    sb.gameObject.GetComponent<BombSnowball>().bombCollider.layer = this.gameObject.layer;
+            //}
+
             sb.Shoot( this.targetDirection );
             yield return new WaitForSeconds(fireRate);
         }
@@ -112,7 +110,6 @@ public class Tower : GridObject, IDamageable, IDirectionable
 
     void Die()
     {
-        // anything else
         Destroy(gameObject);
     }
 
@@ -121,7 +118,7 @@ public class Tower : GridObject, IDamageable, IDirectionable
     /// Assumes that the input is a non-zero, normalized value.
     /// </summary>
     /// <param name="direction"></param>
-    public void SetDirection( Vector2 direction )
+    public void SetDirection(Vector2 direction)
     {
         this.targetDirection = direction;
 
@@ -148,5 +145,10 @@ public class Tower : GridObject, IDamageable, IDirectionable
         }
 
         this.pivot.localScale = scale;
+    }
+
+    private void OnDrawGizmos()
+    {
+        DebugUtils.DrawString( this.health.ToString(), transform.position, -10, 0, Color.red );
     }
 }
