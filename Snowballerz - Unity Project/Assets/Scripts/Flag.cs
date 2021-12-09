@@ -13,6 +13,9 @@ public class Flag : MonoBehaviour, IDamageable
     [ SerializeField ]
     private int health = 100;
 
+    [ SerializeField ]
+    private GameObject explosionEffect;
+
     public int Health 
     {
         get
@@ -54,6 +57,10 @@ public class Flag : MonoBehaviour, IDamageable
         {
             this.OnFlagDeath.Invoke();
         }
+
+        var explosion = GameObject.Instantiate( this.explosionEffect );
+
+        explosion.transform.position = this.transform.position;
 
         GameObject.Destroy( this.gameObject );
     }

@@ -20,6 +20,9 @@ public class Tower : GridObject, IDamageable, IDirectionable
     [ SerializeField ]
     int health;
 
+    [ SerializeField ]
+    GameObject explosionEffect;
+
     int Health
     {
         get { return health; }
@@ -110,7 +113,12 @@ public class Tower : GridObject, IDamageable, IDirectionable
 
     void Die()
     {
-        Destroy(gameObject);
+        // Spawn an explosion effect.
+        var explosion = GameObject.Instantiate( this.explosionEffect );
+
+        explosion.transform.position = this.transform.position;
+
+        Destroy( this.gameObject );
     }
 
     /// <summary>

@@ -17,10 +17,8 @@ public class MatchController : MonoBehaviour
     [ SerializeField ]
     private Animator gameAnnoucementAnim;
 
-    private void Awake()
-    {
-        
-    }
+    [ SerializeField ]
+    private GameObject explosionEffect;
 
     private void Start()
     {
@@ -32,6 +30,10 @@ public class MatchController : MonoBehaviour
                 Destroy( line.P1Flag.gameObject );
                 Destroy( line.P2Flag.gameObject );
 
+                // Place explosion effect for flags.
+                GameObject.Instantiate( this.explosionEffect, line.P1Flag.transform.position, Quaternion.Euler( 0, 0, 0 ) );
+                GameObject.Instantiate( this.explosionEffect, line.P2Flag.transform.position, Quaternion.Euler( 0, 0, 0 ) );
+
                 foreach ( var gs in line.P1.Concat( line.P2 ) )
                 {
                     var go = gs.RemoveGridObject();
@@ -40,6 +42,9 @@ public class MatchController : MonoBehaviour
                         GameObject.Destroy( go.gameObject );
 
                     gs.State = GridSquare.GSState.Unplaceable;
+
+                    // Place explosion effect on GridSquare.
+                    GameObject.Instantiate( this.explosionEffect, gs.transform.position, Quaternion.Euler( 0, 0, 0 ) );
                 }
             };
 

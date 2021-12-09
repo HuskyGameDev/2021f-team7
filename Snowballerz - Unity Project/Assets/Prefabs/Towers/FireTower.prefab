@@ -218,8 +218,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowball: {fileID: 5833964814342281100, guid: 3aeaad031bc7849409e29bc04ffd4b18, type: 3}
   name: Fire Tower
-  sprite: {fileID: 6193762214475228828}
+  srs: []
   health: 150
+  explosionEffect: {fileID: 2611128708674713200, guid: f791dde333c410c4ca1c938553347135, type: 3}
   fireRate: 2
   pivot: {fileID: 1094075522114971016}
   spawnPosOfSnowball: {fileID: 2638390951621955649}
