@@ -24,5 +24,10 @@ public class GlobalInputActions : MonoBehaviour
         }
     }
 
+    public static void Reset( )
+    {
+        instance = null;
+    }
+
     private static InputActions instance = null;
 }
