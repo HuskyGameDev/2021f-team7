@@ -21,9 +21,10 @@ public class BombSnowball : SnowBall
             var hitsDown = Physics2D.RaycastAll(damageable.Object.transform.position, Vector2.down, 2);
 
             // Iterate through all raycast hits, both up and down.
-            foreach (var rc in hitsUp.Concat(hitsDown))
+            foreach ( var rc in hitsUp.Concat(hitsDown) )
             {
-                if (rc.collider != null)
+                // Don't adjacently damage flags
+                if ( rc.collider != null && rc.collider.gameObject.tag != "Flag" )
                 {
                     var damCom = rc.collider.gameObject.GetComponent<IDamageable>();
 

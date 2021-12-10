@@ -154,8 +154,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7959116289574096690}
   - component: {fileID: 3515269427640669956}
-  - component: {fileID: 5396535194378175522}
   - component: {fileID: -1595923894694808861}
+  - component: {fileID: 5396535194378175522}
+  - component: {fileID: -4160367296282737444}
   m_Layer: 9
   m_Name: FireTower
   m_TagString: Untagged
@@ -204,6 +205,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6958553, y: 1.2673799}
   m_EdgeRadius: 0
+--- !u!50 &-1595923894694808861
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6012160165467466500}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!114 &5396535194378175522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,24 +251,17 @@ MonoBehaviour:
   fireRate: 2
   pivot: {fileID: 1094075522114971016}
   spawnPosOfSnowball: {fileID: 2638390951621955649}
---- !u!50 &-1595923894694808861
-Rigidbody2D:
-  serializedVersion: 4
+--- !u!114 &-4160367296282737444
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6012160165467466500}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ff2e8e07375f9c4ea6f97db4d8e9b79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flamesOffset: {x: 0, y: 1, z: -1}
+  flamesEffect: {fileID: 1661068934721893243, guid: c1bbc21f8e8f8af4988f8c0dc4aa2a55, type: 3}

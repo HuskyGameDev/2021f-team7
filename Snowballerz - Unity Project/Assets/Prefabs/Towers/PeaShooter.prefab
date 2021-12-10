@@ -242,6 +242,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ff2e8e07375f9c4ea6f97db4d8e9b79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flamesOffset: {x: 0, y: 1, z: -1}
+  flamesEffect: {fileID: 1661068934721893243, guid: c1bbc21f8e8f8af4988f8c0dc4aa2a55, type: 3}
 --- !u!50 &4207563467259814295
 Rigidbody2D:
   serializedVersion: 4

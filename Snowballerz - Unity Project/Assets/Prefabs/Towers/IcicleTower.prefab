@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 314756143838223801}
   - component: {fileID: 3269415982249166901}
   - component: {fileID: 5251520981399961342}
+  - component: {fileID: 9056894129041271279}
   m_Layer: 0
   m_Name: IcicleTower
   m_TagString: Untagged
@@ -84,6 +85,20 @@ MonoBehaviour:
   fireRate: 2
   pivot: {fileID: 4358314872963820731}
   spawnPosOfSnowball: {fileID: 1696510579042650098}
+--- !u!114 &9056894129041271279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3813387202841638918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ff2e8e07375f9c4ea6f97db4d8e9b79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flamesOffset: {x: 0, y: 1, z: -1}
+  flamesEffect: {fileID: 1661068934721893243, guid: c1bbc21f8e8f8af4988f8c0dc4aa2a55, type: 3}
 --- !u!1 &4215748929379297657
 GameObject:
   m_ObjectHideFlags: 0

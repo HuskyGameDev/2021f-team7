@@ -11,12 +11,7 @@ public class FlamingSnowball : SnowBall
 
         Burnable burnable = damageable.Object.GetComponent<Burnable>();
 
-        if (burnable != null)
-        {
-            if (burnable.IsBurned == false)
-            {
-                burnable.IsBurned = true;
-            }
-        }
+        if ( burnable != null )
+            burnable.StartBurn();
     }
 }
