@@ -5419,6 +5419,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: P2:Flag
       objectReference: {fileID: 0}
+    - target: {fileID: 8827065031688689328, guid: c26282a75c32c93488b75fc67399de73, type: 3}
+      propertyPath: damageSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 5a77cc25d855cce4ba93fbc00f8da8d0, type: 3}
+    - target: {fileID: 8827065031688689328, guid: c26282a75c32c93488b75fc67399de73, type: 3}
+      propertyPath: damageSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 6dcc8c92e61ee314b8567405055fe9e8, type: 3}
+    - target: {fileID: 8827065031688689328, guid: c26282a75c32c93488b75fc67399de73, type: 3}
+      propertyPath: damageSprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: bd13b0c8c79c53145a5a574426ae87c8, type: 3}
+    - target: {fileID: 8827065031688689328, guid: c26282a75c32c93488b75fc67399de73, type: 3}
+      propertyPath: damageSprites.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: fb9b98d1832103b4eaef815306d0b30c, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c26282a75c32c93488b75fc67399de73, type: 3}
 --- !u!4 &150585935 stripped
@@ -13563,6 +13579,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: P2:Flag
       objectReference: {fileID: 0}
+    - target: {fileID: 8827065031688689328, guid: c26282a75c32c93488b75fc67399de73, type: 3}
+      propertyPath: damageSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 5a77cc25d855cce4ba93fbc00f8da8d0, type: 3}
+    - target: {fileID: 8827065031688689328, guid: c26282a75c32c93488b75fc67399de73, type: 3}
+      propertyPath: damageSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 6dcc8c92e61ee314b8567405055fe9e8, type: 3}
+    - target: {fileID: 8827065031688689328, guid: c26282a75c32c93488b75fc67399de73, type: 3}
+      propertyPath: damageSprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: bd13b0c8c79c53145a5a574426ae87c8, type: 3}
+    - target: {fileID: 8827065031688689328, guid: c26282a75c32c93488b75fc67399de73, type: 3}
+      propertyPath: damageSprites.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: fb9b98d1832103b4eaef815306d0b30c, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c26282a75c32c93488b75fc67399de73, type: 3}
 --- !u!4 &1323364397 stripped
@@ -19306,6 +19338,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: P2:Flag
       objectReference: {fileID: 0}
+    - target: {fileID: 8827065031688689328, guid: c26282a75c32c93488b75fc67399de73, type: 3}
+      propertyPath: damageSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 5a77cc25d855cce4ba93fbc00f8da8d0, type: 3}
+    - target: {fileID: 8827065031688689328, guid: c26282a75c32c93488b75fc67399de73, type: 3}
+      propertyPath: damageSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 6dcc8c92e61ee314b8567405055fe9e8, type: 3}
+    - target: {fileID: 8827065031688689328, guid: c26282a75c32c93488b75fc67399de73, type: 3}
+      propertyPath: damageSprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: bd13b0c8c79c53145a5a574426ae87c8, type: 3}
+    - target: {fileID: 8827065031688689328, guid: c26282a75c32c93488b75fc67399de73, type: 3}
+      propertyPath: damageSprites.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: fb9b98d1832103b4eaef815306d0b30c, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c26282a75c32c93488b75fc67399de73, type: 3}
 --- !u!4 &1634522999 stripped
@@ -20581,6 +20629,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: P2:Flag
       objectReference: {fileID: 0}
+    - target: {fileID: 8827065031688689328, guid: c26282a75c32c93488b75fc67399de73, type: 3}
+      propertyPath: damageSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 5a77cc25d855cce4ba93fbc00f8da8d0, type: 3}
+    - target: {fileID: 8827065031688689328, guid: c26282a75c32c93488b75fc67399de73, type: 3}
+      propertyPath: damageSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 6dcc8c92e61ee314b8567405055fe9e8, type: 3}
+    - target: {fileID: 8827065031688689328, guid: c26282a75c32c93488b75fc67399de73, type: 3}
+      propertyPath: damageSprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: bd13b0c8c79c53145a5a574426ae87c8, type: 3}
+    - target: {fileID: 8827065031688689328, guid: c26282a75c32c93488b75fc67399de73, type: 3}
+      propertyPath: damageSprites.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: fb9b98d1832103b4eaef815306d0b30c, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c26282a75c32c93488b75fc67399de73, type: 3}
 --- !u!4 &2093157125 stripped

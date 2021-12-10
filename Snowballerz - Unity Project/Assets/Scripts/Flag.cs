@@ -16,6 +16,14 @@ public class Flag : MonoBehaviour, IDamageable
     [ SerializeField ]
     private GameObject explosionEffect;
 
+    [ SerializeField ]
+    private SpriteRenderer spriteRenderer;
+
+    [ SerializeField ]
+    private Sprite[] damageSprites;
+
+    private int initialHealth;
+
     public int Health 
     {
         get
@@ -24,23 +32,27 @@ public class Flag : MonoBehaviour, IDamageable
         }
         set
         {
-            if ( value <= 0 )
+            this.health = value;
+            
+            if ( this.health <= 0 )
             {
                 this.health = 0;
-
                 this.Die();
             }
-            else 
-            {
-                this.health = value;
-            }
+
+            this.updateSprite();
         }
+    }
+
+    void Awake()
+    {
+        this.initialHealth = this.health;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        this.updateSprite();
     }
 
     // IDamageable Implementation: //
@@ -63,5 +75,16 @@ public class Flag : MonoBehaviour, IDamageable
         explosion.transform.position = this.transform.position;
 
         GameObject.Destroy( this.gameObject );
+    }
+
+    private void updateSprite()
+    {
+        var progress = 1 - (float)this.health / (float)this.initialHealth;
+
+        int spriteI = (int)((float)this.damageSprites.Length * progress);
+        // Limit spriteI to be below damageSprite.Length.
+        spriteI = Mathf.Min(spriteI, this.damageSprites.Length - 1);
+
+        this.spriteRenderer.sprite = this.damageSprites[spriteI];
     }
 }

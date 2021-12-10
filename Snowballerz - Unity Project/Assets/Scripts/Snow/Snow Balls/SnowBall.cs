@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class SnowBall : MonoBehaviour
 {
-    [SerializeField]
+    [ SerializeField ]
     float speed;
 
-    [SerializeField]
+    [ SerializeField ]
     protected int damage;
 
     bool wasShot;

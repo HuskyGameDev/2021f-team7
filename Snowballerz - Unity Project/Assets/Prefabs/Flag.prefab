@@ -156,3 +156,9 @@ MonoBehaviour:
   flagStates: []
   health: 100
   explosionEffect: {fileID: 2611128708674713200, guid: f791dde333c410c4ca1c938553347135, type: 3}
+  spriteRenderer: {fileID: 7814320097894565817}
+  damageSprites:
+  - {fileID: 21300000, guid: 99487f8aa93fd7d498e51557a3d1c2d1, type: 3}
+  - {fileID: 21300000, guid: 6f914a7fcf7b8a848b4d2f17055e407b, type: 3}
+  - {fileID: 21300000, guid: 2023c6fac8c7b554f9007c1d379883ce, type: 3}
+  - {fileID: 21300000, guid: 2e7c63dbe44c9c2469a3945b0ca29ad8, type: 3}

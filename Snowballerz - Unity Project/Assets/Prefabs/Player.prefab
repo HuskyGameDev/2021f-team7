@@ -169,16 +169,16 @@ MonoBehaviour:
   snowCount: 0
   selectionWheel: {fileID: 6224695799459990143}
   towerSWList:
-  - visual: {fileID: 4539338874200799932, guid: e7614204d50b83748815927e1cf97892, type: 3}
+  - visual: {fileID: 8642980832630307034, guid: 6af7d35764559894999b5305d67e2021, type: 3}
     prefab: {fileID: 8642980832630307034, guid: 9fea3a8f1572ffb4c9889e45d8e08d59, type: 3}
     cost: 5
-  - visual: {fileID: 4210339224900193206, guid: 1c1c0c865f87aaa4da56accdb6bd1806, type: 3}
+  - visual: {fileID: 6012160165467466500, guid: 546b93475c0c32048a013ba8c88d98ff, type: 3}
     prefab: {fileID: 6012160165467466500, guid: a5e1af35353cd05418713ac7d7e2b379, type: 3}
     cost: 10
-  - visual: {fileID: 433481171853667491, guid: 40caf15618a41264bbabc2da17e1234c, type: 3}
+  - visual: {fileID: 4027986004015798865, guid: de58be9c1b5c10c49abe940db36137fe, type: 3}
     prefab: {fileID: 4027986004015798865, guid: 3ce7ba5c434c75b4da9910baf78d1e5b, type: 3}
     cost: 15
-  - visual: {fileID: 7008696732378908089, guid: 69c4fbbf760184f41b1cb4813a01f60b, type: 3}
+  - visual: {fileID: 3813387202841638918, guid: b448f23623e8ffc40b65fe5c5a7c823b, type: 3}
     prefab: {fileID: 3813387202841638918, guid: 004abdef5ca098e4caa6a35f72d16f6e, type: 3}
     cost: 20
   destroyItem: {fileID: 9016153037212181022, guid: d2d34e9f7d45c3b49ba0e67118623482, type: 3}
