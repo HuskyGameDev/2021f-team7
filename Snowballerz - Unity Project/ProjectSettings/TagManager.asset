@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Snowball
   - SnowSquare
+  - Flag
   layers:
   - Default
   - TransparentFX
