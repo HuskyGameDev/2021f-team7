@@ -20769,6 +20769,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 949891145, guid: c1500f5da90a2e445a61a679b4bb69a7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 949891145, guid: c1500f5da90a2e445a61a679b4bb69a7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 949891145, guid: c1500f5da90a2e445a61a679b4bb69a7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -195
+      objectReference: {fileID: 0}
+    - target: {fileID: 949891145, guid: c1500f5da90a2e445a61a679b4bb69a7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 128.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 949891145, guid: c1500f5da90a2e445a61a679b4bb69a7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 474176536271555671, guid: c1500f5da90a2e445a61a679b4bb69a7, type: 3}
       propertyPath: m_Name
       value: GameAnnouncementUI
@@ -20860,6 +20880,14 @@ PrefabInstance:
     - target: {fileID: 4643185934494491737, guid: c1500f5da90a2e445a61a679b4bb69a7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189055113013415931, guid: c1500f5da90a2e445a61a679b4bb69a7, type: 3}
+      propertyPath: m_Color.b
+      value: 0.73333335
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189055113013415931, guid: c1500f5da90a2e445a61a679b4bb69a7, type: 3}
+      propertyPath: m_Color.g
+      value: 0.2784314
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1500f5da90a2e445a61a679b4bb69a7, type: 3}
@@ -21231,6 +21259,10 @@ PrefabInstance:
       propertyPath: mapGrid
       value: 
       objectReference: {fileID: 2072610960}
+    - target: {fileID: 6224695799777292138, guid: 8c67ad89e24564c4a90b3f80825df579, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6224695799940567264, guid: 8c67ad89e24564c4a90b3f80825df579, type: 3}
       propertyPath: m_Layer
       value: 8

@@ -72,7 +72,11 @@ public class PlayerGridSelection : MonoBehaviour
             }
         }
 
-        Assert.IsNotNull(nearestSquare);
+        if ( nearestSquare == null )
+        {
+            // Select nothing.
+            return;
+        }
 
         if (nearestSquareDistance <= this.minimumActionDistance)
         {

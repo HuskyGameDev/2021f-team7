@@ -165,6 +165,10 @@ public class Player : MonoBehaviour, IDamageable
             // the selected square is the square which is nearest to the player and is flashing red
             if (selected != null)
             {
+                // If we're about to interact with the snowsquare, play the shoveling animation.
+                if ( selected.selectedSquare.GetGOTag() == "SnowSquare" )
+                    this.animator.SetTrigger( "Shovel" );
+
                 selected.selectedSquare.Interact(this);
             }
         };
