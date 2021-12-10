@@ -64,18 +64,6 @@ public class Tower : GridObject, IDamageable, IDirectionable
     [ SerializeField ]
     Transform spawnPosOfSnowball;
 
-    bool placed;
-
-    public bool Placed
-    {
-        get { return placed; }
-
-        set 
-        {
-            value = placed;
-        }
-    }
-
     public GameObject Object
     {
         get { return this.gameObject; }

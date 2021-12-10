@@ -14095,6 +14095,22 @@ PrefabInstance:
       propertyPath: animations
       value: 
       objectReference: {fileID: 11400000, guid: 5da07ce0e480d2e4d96d3bec7195262f, type: 2}
+    - target: {fileID: 6224695799777292055, guid: 8c67ad89e24564c4a90b3f80825df579, type: 3}
+      propertyPath: towerSWList.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6224695799777292055, guid: 8c67ad89e24564c4a90b3f80825df579, type: 3}
+      propertyPath: towerSWList.Array.data[4].cost
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6224695799777292055, guid: 8c67ad89e24564c4a90b3f80825df579, type: 3}
+      propertyPath: towerSWList.Array.data[4].prefab
+      value: 
+      objectReference: {fileID: 8642980832630307034, guid: 8cf21f6bb6a1ca4448dfdeeb643b91a9, type: 3}
+    - target: {fileID: 6224695799777292055, guid: 8c67ad89e24564c4a90b3f80825df579, type: 3}
+      propertyPath: towerSWList.Array.data[4].visual
+      value: 
+      objectReference: {fileID: 8642980832630307034, guid: 68d0239619103984cbe984f6e8f6821a, type: 3}
     - target: {fileID: 6224695799777292136, guid: 8c67ad89e24564c4a90b3f80825df579, type: 3}
       propertyPath: player
       value: 1
@@ -21638,6 +21654,22 @@ PrefabInstance:
       propertyPath: animations
       value: 
       objectReference: {fileID: 11400000, guid: 2fb549d8f22c0264fb92e1c6667f21b6, type: 2}
+    - target: {fileID: 6224695799777292055, guid: 8c67ad89e24564c4a90b3f80825df579, type: 3}
+      propertyPath: towerSWList.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6224695799777292055, guid: 8c67ad89e24564c4a90b3f80825df579, type: 3}
+      propertyPath: towerSWList.Array.data[4].cost
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6224695799777292055, guid: 8c67ad89e24564c4a90b3f80825df579, type: 3}
+      propertyPath: towerSWList.Array.data[4].prefab
+      value: 
+      objectReference: {fileID: 8642980832630307034, guid: 8cf21f6bb6a1ca4448dfdeeb643b91a9, type: 3}
+    - target: {fileID: 6224695799777292055, guid: 8c67ad89e24564c4a90b3f80825df579, type: 3}
+      propertyPath: towerSWList.Array.data[4].visual
+      value: 
+      objectReference: {fileID: 8642980832630307034, guid: 68d0239619103984cbe984f6e8f6821a, type: 3}
     - target: {fileID: 6224695799777292055, guid: 8c67ad89e24564c4a90b3f80825df579, type: 3}
       propertyPath: towerSelectionList.items.Array.size
       value: 1
