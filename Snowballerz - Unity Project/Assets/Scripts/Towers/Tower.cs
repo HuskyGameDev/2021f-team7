@@ -13,15 +13,23 @@ public class Tower : GridObject, IDamageable, IDirectionable
     [ SerializeField ]
     new string name;
 
-    public List<SpriteRenderer> srs = new List<SpriteRenderer>();
-
-    Vector2 targetDirection = Vector2.left;
-
     [ SerializeField ]
     int health;
 
     [ SerializeField ]
     GameObject explosionEffect;
+
+    [ SerializeField ]
+    SpriteRenderer spriteRenderer;
+
+    [ SerializeField ]
+    Sprite[] damageSprites;
+
+    List<SpriteRenderer> srs = new List<SpriteRenderer>();
+
+    Vector2 targetDirection = Vector2.left;
+
+    int initialHealth;
 
     int Health
     {
@@ -36,6 +44,8 @@ public class Tower : GridObject, IDamageable, IDirectionable
                 health = 0;
                 Die();
             }
+
+            this.updateSprite();
         }
     }
 
@@ -76,10 +86,14 @@ public class Tower : GridObject, IDamageable, IDirectionable
     void Awake()
     {
         this.srs.AddRange( this.GetComponentsInChildren<SpriteRenderer>() );
+
+        this.initialHealth = this.health;
     }
 
     void Start()
     {
+        this.updateSprite();
+        
         StartCoroutine(ShootSnowBall());
     }
 
@@ -153,6 +167,17 @@ public class Tower : GridObject, IDamageable, IDirectionable
         }
 
         this.pivot.localScale = scale;
+    }
+
+    private void updateSprite()
+    {
+        var progress = 1 - (float)this.health / (float)this.initialHealth;
+
+        int spriteI = (int)( (float)this.damageSprites.Length * progress );
+        // Limit spriteI to be below damageSprite.Length.
+        spriteI = Mathf.Min( spriteI, this.damageSprites.Length - 1 );
+
+        this.spriteRenderer.sprite = this.damageSprites[ spriteI ];
     }
 
     private void OnDrawGizmos()
