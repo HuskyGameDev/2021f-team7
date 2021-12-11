@@ -301,20 +301,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 8642980832630307034}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdb2160c4eb19ef4d8ac0a271a2783b6, type: 3}
+  m_Script: {fileID: 11500000, guid: 93ad665e4119e1c4bb5b9b84debaf4a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSnow: 50
+  maxSnow: 20
   delay: 2
-  production: 2
-  health: 50
+  production: 5
+  health: 100
   snow: 0
   fillState: 0
   explosionEffect: {fileID: 2611128708674713200, guid: f791dde333c410c4ca1c938553347135, type: 3}
-  initialhealth: 50
   spriteRenderer: {fileID: 8172304325587580226}
   fillRender: {fileID: 7381925667608332188}
   damageSprites:
+  - {fileID: 21300000, guid: b68e41537d9690d42bed445a0a0de87e, type: 3}
   - {fileID: 21300000, guid: 1ca4c18b8dc99c64db4b1e83639e4011, type: 3}
   - {fileID: 21300000, guid: 71dc3ae3cecebe64d982f7246fa77e94, type: 3}
   - {fileID: 21300000, guid: 07f658e25a10c9843afdc12285dbebf8, type: 3}

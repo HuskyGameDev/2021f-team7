@@ -14,7 +14,7 @@ public class Burnable : MonoBehaviour
     int burnDamage = 5;
     float burnTimer = 1.5f;
 
-    Tower tower;
+    IDamageable tower;
 
     bool isBurned = false;
 
@@ -23,7 +23,7 @@ public class Burnable : MonoBehaviour
 
     void Start()
     {
-        tower = GetComponent<Tower>();   
+        tower = GetComponent<IDamageable>();   
     }
 
     public void StartBurn()

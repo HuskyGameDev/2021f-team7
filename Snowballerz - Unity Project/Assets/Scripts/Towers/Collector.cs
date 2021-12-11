@@ -4,22 +4,16 @@ using UnityEngine;
 
 public class Collector : GridObject, IDamageable
 {
-    
-    enum FillStatus
-    {
-        STATUS_EMPTY = 0,
-        STATUS_PART,
-        STATUS_NEARFULL,
-        STATUS_FULL
-    }
-
     [SerializeField]
+    [Tooltip("The maximum amount of snow the collector will hold.")]
     public int maxSnow;
 
     [SerializeField]
+    [Tooltip("The amount of time between snow productions.")]
     public int delay;
 
     [SerializeField]
+    [Tooltip("The amount of snow produced after delay.")]
     public int production;
 
     [SerializeField]
@@ -29,13 +23,7 @@ public class Collector : GridObject, IDamageable
     int snow;
 
     [SerializeField]
-    int fillState;
-
-    [SerializeField]
     GameObject explosionEffect;
-
-    [SerializeField]
-    int initialhealth;
 
     [SerializeField]
     SpriteRenderer spriteRenderer;
@@ -51,7 +39,12 @@ public class Collector : GridObject, IDamageable
 
     List<SpriteRenderer> srs = new List<SpriteRenderer>();
 
-    public GameObject Object => throw new System.NotImplementedException();
+    int initialhealth;
+
+    public GameObject Object
+    {
+        get { return this.gameObject; }
+    }
 
     public void TakeDamage(int amount)
     {
@@ -82,28 +75,10 @@ public class Collector : GridObject, IDamageable
 
         set
         {
+            // Limit snow to a maxmimum of maxSnow.
+            snow = Mathf.Min( value, this.maxSnow );
 
-            if (snow < maxSnow)
-            {
-
-                snow = value;
-
-                if (snow > (maxSnow / 2))
-                {
-                    fillState = (int)FillStatus.STATUS_NEARFULL;
-                } else
-                {
-                    fillState = (int)FillStatus.STATUS_PART;
-                }
-
-                updatePileSprite();
-         
-            } else
-            {
-                snow = maxSnow;
-                fillState = (int)FillStatus.STATUS_FULL;
-                updatePileSprite();
-            }
+            updatePileSprite();
         }
 
     }
@@ -112,6 +87,7 @@ public class Collector : GridObject, IDamageable
     void Start()
     {
         this.updateSprite();
+        this.updatePileSprite();
 
         StartCoroutine(CollectSnow());
     }
@@ -132,8 +108,6 @@ public class Collector : GridObject, IDamageable
         this.srs.AddRange(this.GetComponentsInChildren<SpriteRenderer>());
 
         this.initialhealth = this.health;
-
-        fillState = (int)FillStatus.STATUS_EMPTY;
     }
 
     void Die()
@@ -149,8 +123,9 @@ public class Collector : GridObject, IDamageable
     public override void Interact(Player player)
     {
         player.SnowCount += snow;
+
         snow = 0;
-        fillState = (int)FillStatus.STATUS_EMPTY;
+
         updatePileSprite();
     }
 
@@ -168,7 +143,14 @@ public class Collector : GridObject, IDamageable
 
     private void updatePileSprite()
     {
-        this.fillRender.sprite = this.fillSprites[fillState];
+        var progress = (float)this.snow / (float)this.maxSnow;
+
+        int spriteI = (int)(progress * (float)this.fillSprites.Length);
+
+        // Limit spriteI to be below fillSprites.Length.
+        spriteI = Mathf.Min(spriteI, this.fillSprites.Length - 1);
+
+        this.fillRender.sprite = this.fillSprites[spriteI];
     }
 
 }
