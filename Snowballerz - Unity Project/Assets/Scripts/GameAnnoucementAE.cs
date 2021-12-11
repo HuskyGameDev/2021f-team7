@@ -15,11 +15,8 @@ public class GameAnnoucementAE : MonoBehaviour
         this.mc.StartGame();
     }
 
-    /// <summary>
-    /// Called by an animation event to end the game.
-    /// </summary>
-    public void EndGame()
+    public void ExitScene( )
     {
-        this.mc.EndGame();
+        this.mc.ExitScene();
     }
 }

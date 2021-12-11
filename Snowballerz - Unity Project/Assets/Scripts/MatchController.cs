@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MatchController : MonoBehaviour
 {
@@ -146,6 +147,11 @@ public class MatchController : MonoBehaviour
         this.p2.enabled = false;
 
         this.gameRunning = false;
+    }
+
+    public void ExitScene()
+    {
+        SceneManager.LoadScene("TitleScreen");
     }
 
     private IEnumerator StartGameAnimationDelay( float t )
