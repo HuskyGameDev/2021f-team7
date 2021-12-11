@@ -23,6 +23,8 @@ public class MatchController : MonoBehaviour
     [ SerializeField ]
     private GameObject explosionEffect;
 
+    private bool gameRunning = false;
+
     /// <summary>
     /// The amount of flags destroyed by Player 1.
     /// </summary>
@@ -79,6 +81,40 @@ public class MatchController : MonoBehaviour
                 this.hud.SetP1DestroyedFlagCount( this.p1DestroyedFlags );
             };
 
+            Action WinDetermine = () =>
+            {
+                if ( !this.gameRunning )
+                    return;
+                
+                // If P1 won.
+                if ( this.p1DestroyedFlags >= 3 )
+                {
+                    this.EndGame();
+
+                    this.gameAnnoucementAnim.SetInteger( "WinningPlayer", 1 );
+                    this.gameAnnoucementAnim.SetTrigger( "GameFinish" );
+                }
+                // If p2 won.
+                else if ( this.p2DestroyedFlags >= 3 )
+                {
+                    this.EndGame();
+
+                    this.gameAnnoucementAnim.SetInteger( "WinningPlayer", 2 );
+                    this.gameAnnoucementAnim.SetTrigger( "GameFinish" );
+                }
+                // If tie.
+                else if ( this.p1DestroyedFlags == 2 && this.p2DestroyedFlags == 2 )
+                {
+                    this.EndGame();
+
+                    this.gameAnnoucementAnim.SetInteger( "WinningPlayer", 0 );
+                    this.gameAnnoucementAnim.SetTrigger( "GameFinish" );
+                }
+            };
+
+            P1FlagDeath += WinDetermine;
+            P2FlagDeath += WinDetermine;
+
             line.P1Flag.OnFlagDeath += P1FlagDeath;
             line.P2Flag.OnFlagDeath += P2FlagDeath;
         }
@@ -99,6 +135,8 @@ public class MatchController : MonoBehaviour
         // Enable both players.
         this.p1.enabled = true;
         this.p2.enabled = true;
+
+        this.gameRunning = true;
     }
 
     public void EndGame()
@@ -106,6 +144,8 @@ public class MatchController : MonoBehaviour
         // Disable both players.
         this.p1.enabled = false;
         this.p2.enabled = false;
+
+        this.gameRunning = false;
     }
 
     private IEnumerator StartGameAnimationDelay( float t )
