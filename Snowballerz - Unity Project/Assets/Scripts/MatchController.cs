@@ -10,6 +10,9 @@ public class MatchController : MonoBehaviour
     private MapGrid map;
 
     [ SerializeField ]
+    private HUD hud;
+
+    [ SerializeField ]
     private Player p1;
     [ SerializeField ]
     private Player p2;
@@ -20,12 +23,22 @@ public class MatchController : MonoBehaviour
     [ SerializeField ]
     private GameObject explosionEffect;
 
+    /// <summary>
+    /// The amount of flags destroyed by Player 1.
+    /// </summary>
+    private int p1DestroyedFlags = 0;
+
+    /// <summary>
+    /// The amount of flags destroyed by Player 2.
+    /// </summary>
+    private int p2DestroyedFlags = 0;
+
     private void Start()
     {
         // Subscribe each flag in each line to 
         foreach ( var line in map.Lines )
         {
-            Action flagDeath = () => {
+            Action flagDeath = ( ) => {
                 // Destroy flags.
                 Destroy( line.P1Flag.gameObject );
                 Destroy( line.P2Flag.gameObject );
@@ -48,8 +61,26 @@ public class MatchController : MonoBehaviour
                 }
             };
 
-            line.P1Flag.OnFlagDeath += flagDeath;
-            line.P2Flag.OnFlagDeath += flagDeath;
+            Action P1FlagDeath = flagDeath;
+
+            P1FlagDeath += () =>
+            {
+                this.p2DestroyedFlags++;
+
+                this.hud.SetP2DestroyedFlagCount( this.p2DestroyedFlags );
+            };
+
+            Action P2FlagDeath = flagDeath;
+
+            P2FlagDeath += () =>
+            {
+                this.p1DestroyedFlags++;
+
+                this.hud.SetP1DestroyedFlagCount( this.p1DestroyedFlags );
+            };
+
+            line.P1Flag.OnFlagDeath += P1FlagDeath;
+            line.P2Flag.OnFlagDeath += P2FlagDeath;
         }
 
         // Initialize both players to be disabled.

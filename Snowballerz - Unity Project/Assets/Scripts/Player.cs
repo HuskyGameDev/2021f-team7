@@ -6,8 +6,6 @@ using static PlayerInputWrapper;
 [ RequireComponent( typeof( PlayerGridSelection ) ) ]
 public class Player : MonoBehaviour, IDamageable
 {
-    public event Action<int> OnSnowCountChange;
-
     // Public / Exposed fields. //
     [ SerializeField ]
     Players player;
@@ -27,6 +25,9 @@ public class Player : MonoBehaviour, IDamageable
     [ SerializeField ]
     GameObject destroyItem;
 
+    [ SerializeField ]
+    private HUD hud;
+
     public int SnowCount
     {
         get { return snowCount; }
@@ -35,10 +36,10 @@ public class Player : MonoBehaviour, IDamageable
         {
             snowCount = value;
 
-            if (OnSnowCountChange != null)
-            {
-                OnSnowCountChange(snowCount);
-            }
+            if ( this.player == Players.Player_1 )
+                this.hud.SetP1SnowCount( this.snowCount );
+            else if ( this.player == Players.Player_2 )
+                this.hud.SetP2SnowCount( this.snowCount );
         }
     }
 
