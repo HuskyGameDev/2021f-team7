@@ -9,7 +9,10 @@ using UnityEngine.EventSystems;
 [RequireComponent(typeof(EventSystem))]
 public class EventSystemInjector : MonoBehaviour
 {
-    EventSystem eventSystem;
+    [ SerializeField ]
+    private AudioSource selectSFX;
+
+    private EventSystem eventSystem;
 
     private void Awake()
     {
@@ -59,5 +62,7 @@ public class EventSystemInjector : MonoBehaviour
         data.selectedObject = this.eventSystem.currentSelectedGameObject;
 
         ExecuteEvents.Execute( data.selectedObject, data, ExecuteEvents.moveHandler );
+
+        this.selectSFX.Play();
     }
 }

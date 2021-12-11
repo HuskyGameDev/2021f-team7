@@ -26,6 +26,9 @@ public class Collector : GridObject, IDamageable
     GameObject explosionEffect;
 
     [SerializeField]
+    AudioSource collectSFX;
+
+    [SerializeField]
     SpriteRenderer spriteRenderer;
 
     [SerializeField]
@@ -122,6 +125,9 @@ public class Collector : GridObject, IDamageable
 
     public override void Interact(Player player)
     {
+        if ( snow > 0 )
+            this.collectSFX.Play();
+        
         player.SnowCount += snow;
 
         snow = 0;
