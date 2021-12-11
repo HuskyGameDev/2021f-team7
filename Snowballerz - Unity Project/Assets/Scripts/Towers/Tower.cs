@@ -25,6 +25,9 @@ public class Tower : GridObject, IDamageable, IDirectionable
     [ SerializeField ]
     Sprite[] damageSprites;
 
+    [ SerializeField ]
+    private AudioSource shootSFX;
+
     List<SpriteRenderer> srs = new List<SpriteRenderer>();
 
     Vector2 targetDirection = Vector2.left;
@@ -99,6 +102,9 @@ public class Tower : GridObject, IDamageable, IDirectionable
             //}
 
             sb.Shoot( this.targetDirection );
+
+            this.shootSFX.Play();
+
             yield return new WaitForSeconds(fireRate);
         }
     }

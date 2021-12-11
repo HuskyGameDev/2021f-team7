@@ -9,6 +9,12 @@ public class Burnable : MonoBehaviour
     [ SerializeField ]
     private GameObject flamesEffect;
 
+    [ SerializeField ]
+    private AudioSource fireHitSFX;
+
+    [ SerializeField ]
+    private AudioSource fireTickSFX;   
+
     private GameObject activeFlamesEffect;
     
     int burnDamage = 5;
@@ -40,6 +46,8 @@ public class Burnable : MonoBehaviour
         }
         
         this.burnTimerCoroutine = StartCoroutine( BurnTimer( 3f ) );
+
+        this.fireHitSFX.Play();
     }
 
     IEnumerator BurnTimer( float time )
@@ -74,6 +82,7 @@ public class Burnable : MonoBehaviour
         {
             yield return new WaitForSeconds(burnTimer);
             tower.TakeDamage(burnDamage);
+            this.fireTickSFX.Play();
         }
     }
 }

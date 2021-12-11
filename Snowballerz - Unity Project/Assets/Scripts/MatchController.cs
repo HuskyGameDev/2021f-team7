@@ -22,6 +22,9 @@ public class MatchController : MonoBehaviour
     private Animator gameAnnoucementAnim;
 
     [ SerializeField ]
+    private AudioSource bgm;
+
+    [ SerializeField ]
     private GameObject explosionEffect;
 
     private bool gameRunning = false;
@@ -138,6 +141,8 @@ public class MatchController : MonoBehaviour
         this.p2.enabled = true;
 
         this.gameRunning = true;
+
+        this.bgm.Play();
     }
 
     public void EndGame()

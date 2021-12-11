@@ -25,6 +25,9 @@ public class Icicle : SnowBall
                 // Make explosion tiny.
                 explosion.transform.localScale = new Vector3( 0.3f, 0.3f, 1 );
 
+                // Disable explosion sound.
+                explosion.GetComponentInChildren<AudioSource>().enabled = false;
+
                 // Destroy self on flag.
                 Destroy( this.gameObject );
             }
