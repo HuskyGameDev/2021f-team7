@@ -10,6 +10,6 @@ public class TitleScreen : MonoBehaviour
 
     public void ClickOnExitButton()
     {
-
+        Application.Quit();
     }
 }

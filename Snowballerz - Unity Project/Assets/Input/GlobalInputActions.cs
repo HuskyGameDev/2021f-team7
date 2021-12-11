@@ -24,9 +24,13 @@ public class GlobalInputActions : MonoBehaviour
         }
     }
 
-    public static void Reset( )
+    public static InputActions Reset( )
     {
+        var inst = instance;
+        
         instance = null;
+
+        return inst;
     }
 
     private static InputActions instance = null;

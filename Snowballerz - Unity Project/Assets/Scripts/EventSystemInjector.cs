@@ -15,6 +15,14 @@ public class EventSystemInjector : MonoBehaviour
     {
         eventSystem = GetComponent<EventSystem>();
 
+        var ia = GlobalInputActions.Reset();
+
+        if (ia != null)
+        {
+            ia.Disable();
+            ia.Dispose();
+        }
+
         var input = GlobalInputActions.Instance;
 
         input.Player_1.Move.performed += ctx =>
